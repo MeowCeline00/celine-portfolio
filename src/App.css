@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 .app {
   font-family: "Roboto", sans-serif;
+  font-family: "PT Sans", serif;
+  font-family: "Amaranth", serif;
   text-align: center;
   line-height: 1.5;
   color: var(--clr-txt);
