@@ -4,7 +4,7 @@
 
 ## Template from
 
-- [Rahuljha4171](https://github.com/rahuljha4171/Portfolio-Website). Thanks in Advance😍!
+- [Rahuljha4171](https://github.com/rahuljha4171/Portfolio-Website). 
 
 ## Built With
 
