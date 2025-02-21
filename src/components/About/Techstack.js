@@ -6,12 +6,12 @@ import {
   DiNodejs,
   DiMongodb,
   DiGit,
+  DiCss3,
+  DiHtml5
 } from "react-icons/di";
 import {
-  SiFirebase,
   SiNextdotjs,
   SiTailwindcss,
-  SiRedux,
   SiMui,
 } from "react-icons/si";
 
@@ -40,10 +40,10 @@ function Techstack() {
         <DiGit />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiFirebase />
+        <DiHtml5 />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiRedux />
+        <DiCss3 />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <SiMui />

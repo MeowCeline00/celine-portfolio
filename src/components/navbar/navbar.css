@@ -74,6 +74,7 @@
   }
 }
 .navbar-brand {
+  font-size: 2rem;
   color: var(--clr-txt) !important;
 }
 
@@ -83,9 +84,11 @@
 }
 
 .navbar-nav .nav-link {
+  font-size: 1.7rem;
   color: var(--clr-txt) !important;
   padding-right: 0.5rem !important;
   padding-left: 0.5rem !important;
+  padding-top: 1rem !important;
 }
 .nav-link {
   padding: 0.8rem 1rem !important;

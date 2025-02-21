@@ -154,7 +154,7 @@
 
 .home-about-body {
   padding-top: 50px;
-  font-size: 1.2em !important;
+  font-size: 1.5em !important;
   text-align: left;
 }
 
@@ -220,4 +220,61 @@
 
 .icon-colour {
   color: var(--clr-primary) !important;
+}
+
+.home-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 50px;
+  margin-top: 20px;
+}
+
+.home-connect-button {
+  display: inline-block;
+  background-color: #044BD9;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 20px;
+  border: 2px solid #044BD9;
+  font-size: 20px;
+  width: 200px;
+  height: 50px;
+  font-weight: bold;
+  line-height: 50px;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.home-connect-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.home-connect-button span:after {
+  content: '\00bb';  
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.home-connect-button:hover span {
+  padding-right: 25px;
+}
+
+.home-connect-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.home-connect-button:hover {
+  background-color: white;
+  color: #044BD9;
+  border-color: #044BD9;
 }

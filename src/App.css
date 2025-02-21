@@ -14,10 +14,10 @@
 
 .light {
   --clr-bg: #ffffff;
-  --clr-bg-alt: #f6f4f4;
+  --clr-bg-alt: #dedede;
 
   --clr-txt: #000000ca;
-  --clr-primary: #03467a;
+  --clr-primary: #044BD9;
 
   --clr-border: #919090;
 
@@ -31,7 +31,7 @@
   --clr-bg-alt: #1d2120;
 
   --clr-txt: #eeeeee;
-  --clr-primary: #83c9ff;
+  --clr-primary: #6FADFE;
   --clr-border: #eeeeee7c;
   --clr-nav: #272f2b;
   --shadow: rgba(0, 0, 0, 0.558) 0px 10px 36px 0px,
@@ -46,19 +46,19 @@ main {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #2978b595;
+  background: #044BD9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1d80cd;
+  background: #6FADFE;
   border-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #03467a;
+  background: #044BD9;
   border-radius: 12px;
 }

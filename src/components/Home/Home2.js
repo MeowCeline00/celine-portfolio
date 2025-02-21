@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/Avatar.png";
-import Tilt from "react-parallax-tilt";
+import myImg from "../../Assets/wing-waving_duck.gif";
+
 import {
   AiFillGithub,
   AiOutlineTwitter,
@@ -21,40 +21,20 @@ function Home2() {
             </h1>
             <p className="home-about-body" data-aos="fade-up">
               <br />
-              I'm a <i className="primary-header">
-                Self-Taught Web Developer
-              </i>{" "}
-              who loves solving problems and building Websites.
-              <br />
-              <br />I am passionate about{" "}
-              <i className="primary-header">technologies</i> and love to learn
-              new things.
-              <br />
-              <br />I am more interested in building new
-              <i>
-                <i className="primary-header">Web Technologies and Products.</i>
-              </i>
-              <br />
-              <br />I always apply my experience in developing products with{" "}
-              <i className="primary-header">Node.js</i> and Modern Javascript
-              Library and Framework like
-              <i className="primary-header"> React.js.</i>
-              <br />
-              <br />
-              Currently expanding my portfolio by building more{" "}
-              <i className="primary-header">projects </i>projects that I can add
-              here.
+              Hi, I’m Celine—a digital designer and front-end developer based in Vancouver, BC, Canada. I’m currently in my 4th term of the Digital Design and Development (D3) Program at BCIT.
+Before diving into the world of design and development, I earned a Bachelor’s degree in Biology from the University of British Columbia. My scientific background honed my research and analytical skills, giving me a unique perspective when approaching challenges and working with data.
+I’m passionate about web development, graphic design, and photography, and I’m always eager to learn new skills and explore fresh perspectives.
+If you’d like to connect, feel free to reach out—I’m always happy to make new friends and collaborate!
             </p>
           </Col>
           <Col md={4} className="myAvtar">
-            <Tilt>
+      
               <img
                 data-aos="fade-left"
                 src={myImg}
                 className="img-fluid"
                 alt="avatar"
               />
-            </Tilt>
           </Col>
         </Row>
         <Row>
@@ -66,7 +46,7 @@ function Home2() {
             <ul className="home-about-social-links" data-aos="fade-up">
               <li className="social-icons">
                 <a
-                  href="https://github.com/Rahuljha4171"
+                  href="https://github.com/MeowCeline00"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
@@ -75,31 +55,10 @@ function Home2() {
                   <AiFillGithub />
                 </a>
               </li>
+              
               <li className="social-icons">
                 <a
-                  href="https://twitter.com/kumardotexe"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                  aria-label="twitter"
-                >
-                  <AiOutlineTwitter />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="mailto:rahul.workmail01@gmail.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                  aria-label="email"
-                >
-                  <AiOutlineMail />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.linkedin.com/in/Rahuljha4171/"
+                  href="https://www.linkedin.com/in/congling-wang-22a475172/"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
@@ -110,7 +69,7 @@ function Home2() {
               </li>
               <li className="social-icons">
                 <a
-                  href="https://www.instagram.com/dead.programmer/"
+                  href="https://www.instagram.com/celinemumu_00/"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"

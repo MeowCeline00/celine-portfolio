@@ -5,17 +5,40 @@
   width: 100%;
   height: 100%;
   z-index: 999999;
-  background-color: var(--clr-bg);
-  background-image: url(../../Assets/pre.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: #6FADFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #preloader-none {
-  opacity: 0;
+  display: none; 
 }
 
-#no-scroll {
-  overflow: hidden;
-  height: 100vh;
+.preloader-container {
+  display: flex;
+  gap: 20px;
+}
+
+.bouncing-duck {
+  width: 80px; 
+  height: auto;
+  animation: bounce 0.8s infinite ease-in-out; 
+}
+
+.delay-1 {
+  animation-delay: 0.15s;
+}
+
+.delay-2 {
+  animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
