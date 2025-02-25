@@ -79,6 +79,8 @@ function NavBar() {
             <span></span>
             <span></span>
             <span></span>
+            <span></span>
+            <span></span>
           </div>
         </Navbar.Toggle>
 
@@ -101,7 +103,20 @@ function NavBar() {
                 Projects
               </Nav.Link>
             </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
+                Contact
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
+                Gallary
+              </Nav.Link>
+            </Nav.Item>
           </Nav>
+
 
           <Nav.Item>
             <div className="theme-switch">

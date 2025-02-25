@@ -1,91 +1,225 @@
+/* Full-Screen Project Section */
 .project-section {
-  position: relative !important;
-  padding-top: 150px !important;
-  padding-bottom: 30px !important;
-  background-color: var(--clr-bg) !important;
+  padding: 60px 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f8f9fa; /* Light gray background */
+  width: 100vw; /* Full width */
+  min-height: 100vh; /* Full screen height */
 }
 
-.project-card {
-  padding-top: 50px !important;
-  padding-bottom: 50px !important;
-
-  padding-left: 25px !important;
-  padding-right: 25px !important;
-  height: auto !important;
-}
-
-.project-card-view {
-  background: transparent !important;
-  color: var(--clr-txt) !important;
-  box-shadow: var(--shadow) !important;
-  transition: all 0.5s ease 0s !important;
-  height: 100% !important;
-}
-.project-card-view:hover {
-  transform: scale(1.05) !important;
-  overflow: hidden !important;
-}
-
-.blog-card {
-  padding-top: 50px !important;
-  padding-bottom: 50px !important;
-  padding-left: 25px !important;
-  padding-right: 25px !important;
-  height: auto !important;
-}
-
-.blog-card-view {
-  background-color: transparent !important;
-  box-shadow: 0 3px 3px 2px #0bebefa0 !important;
-  color: white !important;
-  transition: all 0.5s ease 0s !important;
-  height: 100% !important;
-}
-
-.blog-link {
-  color: white !important;
-  text-decoration: none !important;
-}
-
-.blog-link:hover {
-  cursor: pointer !important;
-}
-
-.blog-card-view:hover {
-  transform: scale(1.02) !important;
-  overflow: hidden !important;
-  box-shadow: 0 3px 3px 5px #0bebef !important;
-}
-
-.card-img-top {
-  padding: 20px !important;
-  opacity: 0.8 !important;
-  border-radius: 10px !important;
-}
-
-.blog-img {
-  padding: 0px !important;
-  opacity: 0.8 !important;
-  border-radius: 0px !important;
-}
-
-.btn-primary {
-  color: var(--clr-txt) !important;
-  background: transparent !important;
-  border-color: var(--clr-primary) !important;
-}
-
-.btn-primary:hover {
-  color: var(--clr-bg) !important;
-  background-color: var(--clr-primary) !important;
-}
-.btn:focus {
-  outline: none !important;
-  box-shadow: none !important;
-}
+/* Project Heading */
 .project-heading {
-  color: var(--clr-txt) !important;
-  font-size: 2.3em !important;
-  font-weight: 500 !important;
-  padding-top: 10px !important;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Full-Screen Project Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 30px; /* Adds space between cards */
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensures full-width layout */
+  max-width: 1600px; /* Wider max-width for better layout */
+  margin: auto;
+}
+
+/* Project Card */
+.project-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensuring All Cards Have the Same Size */
+.project-card-view {
+  position: relative;
+  width: 450px; /* Fixed width */
+  height: 450px; /* Fixed height */
+  overflow: hidden;
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.project-card-view:hover {
+  transform: scale(1.05);
+}
+
+/* Image Container to Ensure Uniform Size */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensuring Images Fit Properly in Fixed Size Cards */
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures images fill the space while keeping aspect ratio */
+  border-radius: 15px;
+}
+
+/* Overlay Effect on Hover */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.project-card-view:hover .overlay {
+  opacity: 1;
+}
+
+.project-title {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (min-width: 1400px) {
+  /* Large Screens: 3 large cards per row */
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1399px) {
+  /* Desktop: 3 slightly smaller cards per row */
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet: 2 larger cards per row */
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  /* Mobile: 1 full-width card per row */
+  .project-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .project-card-view {
+    width: 95%;
+    height: auto;
+  }
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.filter-button {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  margin: 0 15px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.filter-button.active, .filter-button:hover {
+  color: #044BD9;
+  text-decoration: underline;
+}
+
+/* Blog Page Full Screen Styling */
+.blog-container {
+  max-width: 90%;
+  margin: auto;
+  padding: 40px;
+  text-align: left;
+  padding-top: 100px;
+}
+
+.blog-header {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.blog-title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.blog-category {
+  color: blue;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.blog-image-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.blog-image {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.blog-date {
+  font-size: 1.2rem;
+  color: #d5a100;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.blog-content {
+  font-size: 1.3rem;
+  line-height: 1.8;
+}
+
+.blog-subheading {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 25px;
+}
+
+/* Full-Screen Footer */
+.footer {
+  width: 100%;
+  padding: 20px 0;
+  background-color: #fff;
+  text-align: center;
+  font-size: 16px;
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+  margin-top: auto; /* This removes extra black space */
+  position: relative;
+  bottom: 0;
 }

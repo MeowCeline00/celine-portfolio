@@ -1,66 +1,85 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, ButtonGroup, Button } from "react-bootstrap";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import ProjectCard from "./ProjectCards";
 
 import PrivateChat from "../../Assets/Projects/PrivateChat.png";
 import Portfolio from "../../Assets/Projects/Portfolio.png";
-import Ecart from "../../Assets/Projects/ecart.png";
+import ForestVitae from "../../Assets/Projects/can_various_flavors.jpg";
 import ExpenseTracker from "../../Assets/Projects/ExpenseTracker.png";
 
 import "./project.css";
 
+const projectsData = [
+  {
+    id: 1,
+    category: "Graphic Design",
+    imgPath: ForestVitae,
+    title: "Can Design",
+    blogLink: "/projects/blogs/can-design"
+  },
+  {
+    id: 2,
+    category: "Development",
+    imgPath: Portfolio,
+    title: "Portfolio Website",
+    blogLink: "/projects/blogs/portfolio"
+  },
+  {
+    id: 3,
+    category: "Development",
+    imgPath: PrivateChat,
+    title: "Private Chat",
+    blogLink: "/projects/blogs/private-chat"
+  },
+  {
+    id: 4,
+    category: "Development",
+    imgPath: ExpenseTracker,
+    title: "Expense Tracker",
+    blogLink: "/projects/blogs/expense-tracker"
+  }
+];
+
 function Projects() {
+  const [filteredProjects, setFilteredProjects] = useState(projectsData);
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filterProjects = (category) => {
+    setActiveCategory(category);
+    setFilteredProjects(
+      category === "All" ? projectsData : projectsData.filter((p) => p.category === category)
+    );
+  };
+
   return (
-    <Container fluid className="project-section">
-      <Container>
-        <h1 className="project-heading">
-          My Recent <strong className="Fluorescent-Blue">Works </strong>
-        </h1>
-        <p>Here are a few projects I've worked on recently.</p>
-        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          <Col md={6} lg={4} className="project-card">
-            <ProjectCard
-              imgPath={Ecart}
-              title="E Cart"
-              description="This is a fully functional eCommerce website that uses React.js + MUI and CSS in the front end and NodeJs and express js in backend and MongoDb as Database."
-              ghLink="https://github.com/rahuljha4171/E-cart"
-              demoLink="https://ecart.onrender.com/"
-            />
-          </Col>
+    <section>
+      <Container fluid className="project-section">
+        <Container>
+          <h1 className="project-heading">My Recent <strong className="Fluorescent-Blue">Works</strong></h1>
+          <p>Here are some projects I've worked on recently.</p>
 
-          <Col md={6} lg={4} className="project-card">
-            <ProjectCard
-              imgPath={Portfolio}
-              title="Portfolio Website"
-              description="My personal Portfolio Website build with React and Bootstrap. It is fully responsive website which supports both dark and light mode."
-              ghLink="https://github.com/rahuljha4171/Portfolio-Website"
-              demoLink="https://rahuljha.info/"
-            />
-          </Col>
-          <Col md={6} lg={4} className="project-card">
-            <ProjectCard
-              imgPath={PrivateChat}
-              title="Private Chat"
-              description="A Personal Chat Application to share resources and hangout with friends build with react.js, css, and Firebase. Have features which allows user for realtime messaging, image sharing and search user."
-              ghLink="#"
-              demoLink="https://chat-app-rahuljha4171.vercel.app/"
-            />
-          </Col>
+          <ButtonGroup className="filter-buttons">
+            {["All", "Development", "Graphic Design"].map((category) => (
+              <Button
+                key={category}
+                className={`filter-button ${activeCategory === category ? "active" : ""}`}
+                onClick={() => filterProjects(category)}
+              >
+                {category}
+              </Button>
+            ))}
+          </ButtonGroup>
 
-          <Col md={6} lg={4} className="project-card">
-            <ProjectCard
-              imgPath={ExpenseTracker}
-              title="Expense Tracker"
-              description="An online expense tracker using React, Node, Express, and MongoDB as the database. It allows you to keep track of your expenses, investments, and savings. All past transactions are listed, and you can also delete them. "
-              ghLink="https://github.com/rahuljha4171/Expense-Tracker"
-              demoLink="https://expense-tracker.rahuljha4171.vercel.app/"
-            />
-          </Col>
-        </Row>
+          <div className="project-grid">
+            {filteredProjects.map((project) => (
+              <ProjectCard key={project.id} {...project} />
+            ))}
+          </div>
+        </Container>
+        <ScrollToTop />
       </Container>
-      <ScrollToTop />
-    </Container>
+    </section>
   );
 }
 

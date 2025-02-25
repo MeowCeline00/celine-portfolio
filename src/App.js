@@ -12,6 +12,13 @@ import {
   Navigate,
 } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+
+// Blog Pages
+import CaseStudy from "./components/Projects/Blogs/Case-Study";
+import CanDesign from "./components/Projects/Blogs/Can-design";
+import CatStory from "./components/Projects/Blogs/Cat-story";
+import MenuDesign from "./components/Projects/Blogs/Menu-design";
+
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -37,6 +44,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/project" element={<Projects />} />
+
+            {/* Routes for Blogs */}
+            <Route path="/projects/blogs/Case-Study" element={<CaseStudy />} />
+            <Route path="/projects/blogs/Can-design" element={<CanDesign />} />
+            <Route path="/projects/blogs/Cat-story" element={<CatStory />} />
+            <Route path="/projects/blogs/Menu-design" element={<MenuDesign />} />
+
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
           <Footer />
