@@ -2,17 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { ThemeContext } from "../../Context/theme";
-
 import Container from "react-bootstrap/Container";
 import Portfoliologo from "../../Assets/porfolio logo Celine_colored.png";
-
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./navbar.css";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
   const [{ themename, toggeltheme }] = useContext(ThemeContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   function scrollHandler() {
     if (window.scrollY >= 20) {
@@ -21,42 +21,59 @@ function NavBar() {
       updateNavbar(false);
     }
   }
-  useEffect(() => {
-    const body = document.body;
-    const toggle = document.querySelector(".toggle-inner");
-    if (themename === "dark") {
-      body.classList.add("dark-mode");
-      toggle.classList.add("toggle-active");
-    } else {
-      body.classList.remove("dark-mode");
-      toggle.classList.remove("toggle-active");
-    }
-  }, [themename]);
 
-  window.addEventListener("scroll", scrollHandler);
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
+
+  function handleScrollToHome() {
+    if (location.pathname !== "/") {
+      navigate("/", { replace: true });
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 500);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    updateExpanded(false);
+  }
+
+  function handleScrollToAbout() {
+    if (location.pathname !== "/") {
+      navigate("/", { replace: true });
+      setTimeout(() => {
+        const aboutSection = document.getElementById("about");
+        if (aboutSection) {
+          aboutSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 500);
+    } else {
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    updateExpanded(false);
+  }
 
   return (
-    <Navbar
-      expanded={expand}
-      fixed="top"
-      expand="md"
-      className={navColour ? "sticky" : "navbar"}
-    >
+    <Navbar expanded={expand} fixed="top" expand="md" className={navColour ? "sticky" : "navbar"}>
       <Container>
         <Navbar.Brand href="/" className="d-flex">
           <img
-            src={themename === "light" ? Portfoliologo: Portfoliologo}
+            src={Portfoliologo}
             className="img-fluid logo"
             alt="brand"
-            style={{width: "500", height: "400"}}
+            style={{ width: "100px" }}
           />
         </Navbar.Brand>
 
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
+          onClick={() => updateExpanded(expand ? false : "expanded")}
         >
           <div className="toggleButton">
             <span></span>
@@ -68,27 +85,19 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
+              <Nav.Link onClick={handleScrollToHome}>
                 Home
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
+              <Nav.Link onClick={handleScrollToAbout}>
                 About
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-              >
+              <Nav.Link as={Link} to="/project" onClick={() => updateExpanded(false)}>
                 Projects
               </Nav.Link>
             </Nav.Item>

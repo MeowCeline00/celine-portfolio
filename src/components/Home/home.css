@@ -34,7 +34,7 @@
 }
 
 .home-header {
-  padding-top: 80px !important;
+  padding-top: 40px !important;
 }
 
 .home-section {
@@ -149,6 +149,12 @@
   color: var(--clr-txt) !important;
   padding-top: 100px !important;
   padding-bottom: 20px !important;
+  text-align: center !important;
+}
+
+.home-about-description-part {
+  padding-top: 40px !important;
+  padding-bottom: 10px !important;
   text-align: center !important;
 }
 
@@ -277,4 +283,41 @@
   background-color: white;
   color: #044BD9;
   border-color: #044BD9;
+}
+
+
+.myAvtar {
+  display: flex;
+  align-items: center;  
+  justify-content: center; 
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.avatar-img {
+  max-width: 100%; 
+  width: 500px; 
+  height: auto;
+}
+
+@media (max-width: 991px) {
+  .avatar-img {
+    width: 250px; 
+  }
+}
+
+@media (max-width: 767px) {
+  .myAvtar {
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  .avatar-img {
+    width: 200px; 
+  }
 }

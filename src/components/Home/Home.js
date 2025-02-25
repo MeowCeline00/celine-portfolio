@@ -13,7 +13,7 @@ function Home() {
     <section>
       <Container fluid className="home-section" id="home">
         <Container className="home-content">
-          <Row>
+          <Row className="align-items-center">
             <Col md={7} className="home-header">
               <h1 style={{ paddingBottom: 15 }} className="heading">
                 Hi There!{" "}
@@ -39,7 +39,7 @@ function Home() {
                   className="home-connect-button"
                   aria-label="Linkedin Profile"
                 >
-                  <span>Let's Connect!</span>
+                  <span>Let's Connect</span>
                 </a>
               </div>
             </Col>
@@ -50,7 +50,6 @@ function Home() {
                 src={homeIcon}
                 alt="home pic"
                 className="img-fluid"
-                style={{ paddingTop: -20 }}
               />
              
              </Tilt>

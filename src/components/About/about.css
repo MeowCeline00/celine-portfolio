@@ -14,7 +14,7 @@
   color: var(--clr-primary);
   vertical-align: middle !important;
   text-align: center !important;
-  background: transparent !important;
+  background: white !important;
   box-shadow: var(--shadow) !important;
   border-radius: 5px !important;
   display: table !important;
