@@ -1,0 +1,74 @@
+body {
+    cursor: none !important;
+  }
+  
+  /* Small cursor dot (Inner Cursor) */
+  .cursor {
+    position: fixed;
+    background: #fff;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    z-index: 10000;
+    transform: scale(1);
+    user-select: none;
+    pointer-events: none;
+    transition: 
+      0.3s ease-in-out transform,
+      0.2s ease-in-out opacity,
+      0.2s ease-in-out background-color;
+  }
+  
+  .cursor.active {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+  
+  .cursor.hovered {
+    opacity: 0.08;
+  }
+  
+  /* Outer Cursor Follower */
+  .cursor-follower {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    z-index: 9999;
+    user-select: none;
+    pointer-events: none;
+    transition: 
+      0.6s ease-in-out transform,
+      0.2s ease-in-out opacity,
+      0.2s ease-in-out background-color;
+  }
+  
+  .cursor-follower.active {
+    opacity: 0.7;
+    transform: scale(3);
+  }
+  
+  .cursor-follower.hovered {
+    opacity: 0.08;
+  }
+  
+  /* Make cursor visible on all elements */
+  a, button, input, textarea, select, .hover-target {
+    cursor: none !important;
+  }
+  
+  /* Media query to disable custom cursor on touch devices */
+  @media (max-width: 768px) {
+    .cursor, .cursor-follower {
+      display: none;
+    }
+    
+    body {
+      cursor: auto !important;
+    }
+    
+    a, button, input, textarea, select, .hover-target {
+      cursor: auto !important;
+    }
+  }

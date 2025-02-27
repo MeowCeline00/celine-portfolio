@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CustomCursor from "./components/Cursor/CustomCursor";
 import Preloader from "../src/components/preloader/Preloader";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/Home/Home";
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <div className={`${themename} app`}>
+      <CustomCursor />
       <Router>
         <Preloader load={load} />
         <div className="App" id={load ? "no-scroll" : "scroll"}>
