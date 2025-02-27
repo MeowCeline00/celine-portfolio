@@ -78,17 +78,18 @@ const CustomCursor = () => {
   }, []); 
 
   // Update cursor colors when theme changes
+
   useEffect(() => {
     if (cursorRef.current && followerRef.current) {
       if (themename === "light") {
-        cursorRef.current.style.backgroundColor = "#044BD9";
-        followerRef.current.style.backgroundColor = "rgba(242, 183, 5, 0.3)";
+        cursorRef.current.style.backgroundColor = "#044BD9"; 
+        followerRef.current.style.backgroundColor = "rgba(240, 189, 33, 0.5)";
       } else {
-        cursorRef.current.style.backgroundColor = "#FFFFFF";
-        followerRef.current.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+        cursorRef.current.style.backgroundColor = "#F2B705"; 
+        followerRef.current.style.backgroundColor = "rgba(255, 255, 255, 0.66)"; 
       }
     }
-  }, [themename]); 
+  }, [themename]);
 
   return (
     <>
