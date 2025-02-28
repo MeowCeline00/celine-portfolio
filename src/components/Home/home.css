@@ -25,11 +25,11 @@
   position: relative;
   z-index: 1;
   background-color: var(--clr-bg);
-  padding-bottom: 30px !important;
+  padding-bottom: 10px !important;
 }
 
 .home-content {
-  padding: 9rem 2rem !important;
+  padding: 5rem 1rem !important;
   color: var(--clr-txt);
   text-align: left;
   padding-top: -100px;
