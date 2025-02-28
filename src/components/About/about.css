@@ -8,15 +8,15 @@
 
 .tech-icons {
   font-size: 4.5em !important;
-  margin: 15px !important;
-  padding: 10px !important;
+  margin: 10px !important;
+  padding: 7px !important;
   opacity: 0.93 !important;
   color: var(--clr-primary);
   vertical-align: middle !important;
   text-align: center !important;
   background: white !important;
   box-shadow: var(--shadow) !important;
-  border-radius: 5px !important;
+  border-radius: 20px !important;
   display: table !important;
   overflow: hidden !important;
   transition: all 0.4s ease 0s !important;
