@@ -60,7 +60,12 @@ function NavBar() {
   }
 
   return (
-    <Navbar expanded={expand} fixed="top" expand="md" className={navColour ? "sticky" : "navbar"}>
+    <Navbar 
+      expanded={expand} 
+      fixed="top" 
+      expand="md" 
+      className={`${navColour ? "sticky" : "navbar"} ${themename}`}
+    >
       <Container>
         <Navbar.Brand href="/" className="d-flex">
           <img
@@ -116,8 +121,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
           </Nav>
-
-
+          
           <Nav.Item>
             <div className="theme-switch">
               <div id="toggle" onClick={toggeltheme}>

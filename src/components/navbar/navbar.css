@@ -69,7 +69,6 @@
     font-size: 1.2rem !important;
     transition: all 0.5s ease-out 0s !important;
     box-shadow: 0px 2px 2px 0px var(--clr-border) !important;
-
     backdrop-filter: blur(250px) !important;
   }
 }
@@ -94,8 +93,51 @@
   padding: 0.8rem 1rem !important;
 }
 
+/* Theme Switch */
 .theme-switch {
   padding-left: 20px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+#toggle {
+  width: 46px;
+  height: 22px;
+  position: relative;
+  background-color: #044BD9;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+#toggle .toggle-inner {
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 2px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode styling */
+.dark #toggle {
+  background-color: #6FADFE;
+}
+
+.dark #toggle .toggle-inner {
+  transform: translateX(24px);
+  background-color: white;
+}
+
+.light #toggle .toggle-inner {
+  transform: translateX(0);
 }
 
 @media (max-width: 768px) {
@@ -110,6 +152,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 12px 0;
   }
 }
 
@@ -141,33 +184,4 @@
 
 .navbar-nav .nav-item a:hover::after {
   width: 100%;
-}
-
-/* theme Switch */
-#toggle {
-  width: 50px;
-  display: flex;
-  padding: 5px;
-  background-color: #044BD9;
-  display: block;
-  border-radius: 1000px;
-  cursor: pointer;
-  box-shadow: 0px 5px 20px -10px var(--shadow);
-  transition: background-color 0.3s ease-in;
-}
-#toggle .toggle-inner {
-  width: 20px;
-  height: 15px;
-  background-color: var(--clr-bg);
-  border-radius: 1000px;
-  transition: margin-left 0.3s ease-in, background-color 0.3s ease-in;
-}
-#toggle .toggle-inner.toggle-active {
-  margin-left: 20px;
-}
-.dark-mode #toggle {
-  background-color: var(--clr-txt);
-}
-.dark-mode #toggle .toggle-inner {
-  background-color: #202523;
 }
