@@ -41,14 +41,17 @@
   position: relative;
   z-index: 1;
   background-color: var(--clr-bg);
-  padding-bottom: 30px !important;
-  padding-top: -40px;
+  padding-bottom: 0 !important; 
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .home-content {
-  padding: 9rem 2rem !important;
+  padding: 4rem 2rem !important;
   color: var(--clr-txt);
   text-align: left;
+  height: 100%;
 }
 
 .heading {
@@ -140,9 +143,10 @@
 
 .home-about-section {
   position: relative;
-  padding-bottom: 70px !important;
   padding-top: 70px !important;
+  padding-bottom: 70px !important;
   background-color: var(--clr-bg-alt);
+  margin-top: 0 !important;
 }
 
 .home-about-description {
