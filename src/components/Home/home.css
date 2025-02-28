@@ -34,7 +34,7 @@
 }
 
 .home-header {
-  padding-top: 40px !important;
+  padding-top: 20px !important;
 }
 
 .home-section {
@@ -55,12 +55,12 @@
 }
 
 .heading {
-  font-size: 2.4em !important;
+  font-size: 2.2em !important;
   padding-left: 50px !important;
 }
 
 .heading-name {
-  font-size: 5em !important;
+  font-size: 3em !important;
   padding-left: 45px !important;
 }
 
@@ -69,25 +69,25 @@
 }
 
 .Typewriter__wrapper {
-  font-size: 2em !important;
+  font-size: 1.75em !important;
   color: var(--clr-primary) !important;
   font-weight: 600 !important;
   padding-left: 25px;
 }
 .Typewriter__cursor {
-  font-size: 2.4em !important;
+  font-size: 2.2em !important;
   color: var(--clr-primary) !important;
 }
 
 @media (max-width: 991px) {
   .heading {
-    font-size: 2.3em !important;
+    font-size: 2.1em !important;
     padding-left: 0px !important;
     text-align: left !important;
   }
 
   .heading-name {
-    font-size: 4em !important;
+    font-size: 2em !important;
     padding-left: 0px !important;
     text-align: left !important;
   }
@@ -95,22 +95,22 @@
     padding-left: 0px;
   }
   .Typewriter__wrapper {
-    font-size: 1.3em !important;
+    font-size: 1.1em !important;
     padding: 0px !important;
   }
   .Typewriter__cursor {
-    font-size: 1.5em !important;
+    font-size: 1.2em !important;
   }
 }
 @media (max-width: 767px) {
   .heading {
-    font-size: 2.2em !important;
+    font-size: 2em !important;
     padding-left: 20px !important;
     text-align: left !important;
   }
 
   .heading-name {
-    font-size: 3em !important;
+    font-size: 1.5em !important;
     padding-left: 20px !important;
     text-align: left !important;
   }
@@ -119,7 +119,7 @@
   }
   .Typewriter__wrapper {
     text-align: center !important;
-    font-size: 1.2em !important;
+    font-size: 1em !important;
     font-weight: 400 !important;
     position: absolute;
   }
@@ -131,7 +131,7 @@
 
 .myAvtar {
   justify-content: center !important;
-  padding-top: 9em !important;
+  padding-top: 7em !important;
 }
 
 @media (max-width: 767px) {
@@ -164,7 +164,7 @@
 
 .home-about-body {
   padding-top: 50px;
-  font-size: 1.5em !important;
+  font-size: 1.2em !important;
   text-align: left;
 }
 
@@ -188,7 +188,7 @@
   width: 40px !important;
   height: 40px !important;
   text-align: center !important;
-  font-size: 1.2em !important;
+  font-size: 1em !important;
   line-height: 2em !important;
   background: var(--clr-bg) !important;
   box-shadow: var(--shadow) !important;

@@ -19,7 +19,7 @@ function Pre({ load }) {
   return (
     <div id="preloader">
       <div className="preloader-text">
-        <h1>Welcome</h1>
+        <h1>Welcome!</h1>
       </div>
       <div className="preloader-container">
         <img src={duckImage} alt="duck" className="bouncing-duck" />

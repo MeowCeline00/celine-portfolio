@@ -21,15 +21,16 @@
 }
 
 .preloader-text h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   color: white; 
-  font-weight: bold;
+  font-weight: normal;
   text-align: center;
+  font-family: "Amaranth", serif;
 }
 
 .preloader-container {
   display: flex;
-  gap: 20px;
+  gap: 27px;
 }
 
 .bouncing-duck {
