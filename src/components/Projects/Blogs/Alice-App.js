@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../../Context/theme"; 
 import CanHero from "../../../Assets/Projects/can_design.jpg";
-import Footer from "../../../components/footer/Footer";
+import Footer from "../../footer/Footer";
 
 
 import "./blog.css"; 

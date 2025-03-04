@@ -1,20 +1,22 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import "./project.css";
 
-function ProjectCards({ imgPath, title, blogLink }) {
+function ProjectCard({ imgPath, title, blogLink }) {
   return (
-    <Link to={blogLink} className="project-card-link">
-      <Card className="project-card-view">
-        <div className="image-container">
-          <Card.Img variant="top" src={imgPath} alt={title} className="project-image"/>
+    <div className="project-card">
+      <Link to={blogLink} className="card-link">
+        <div className="project-card-inner">
+          <div className="image-container">
+            <img src={imgPath} alt={title} className="project-image" />
+          </div>
           <div className="overlay">
-            <span className="project-title">{title}</span>
+            <h2 className="project-title">{title}</h2>
           </div>
         </div>
-      </Card>
-    </Link>
+      </Link>
+    </div>
   );
 }
 
-export default ProjectCards;
+export default ProjectCard;

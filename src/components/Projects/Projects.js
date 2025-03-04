@@ -1,79 +1,90 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Container, ButtonGroup, Button } from "react-bootstrap";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import ProjectCard from "./ProjectCards";
+import { ThemeContext } from "../../Context/theme";
 
-import PrivateChat from "../../Assets/Projects/PrivateChat.png";
-import Portfolio from "../../Assets/Projects/Portfolio.png";
+import AliceWonderland from "../../Assets/Projects/alice.jpg";
+import SunnysideMenu from "../../Assets/Projects/sunnyside.jpg";
 import ForestVitae from "../../Assets/Projects/can_various_flavors.jpg";
-import ExpenseTracker from "../../Assets/Projects/ExpenseTracker.png";
+import AetherApp from "../../Assets/Projects/aether.jpg";
 
 import "./project.css";
 
 const projectsData = [
   {
     id: 1,
-    category: "Graphic Design",
+    category: ["Graphic Design"],
     imgPath: ForestVitae,
-    title: "Can Design",
+    title: "ForestVitae - Can Design",
     blogLink: "/projects/blogs/can-design"
   },
   {
     id: 2,
-    category: "Development",
-    imgPath: Portfolio,
-    title: "Portfolio Website",
-    blogLink: "/projects/blogs/portfolio"
+    category: ["Graphic Design"],
+    imgPath: SunnysideMenu,
+    title: "Menu of SunnySide Restaurant",
+    blogLink: "/projects/blogs/menu-design"
   },
   {
     id: 3,
-    category: "Development",
-    imgPath: PrivateChat,
-    title: "Private Chat",
-    blogLink: "/projects/blogs/private-chat"
+    category: ["UI/UX Design", "Graphic Design", "Development"],
+    imgPath: AliceWonderland,
+    title: "Alice Wonderland - Stress Relief App",
+    blogLink: "/projects/blogs/Alice-App"
   },
   {
     id: 4,
-    category: "Development",
-    imgPath: ExpenseTracker,
-    title: "Expense Tracker",
-    blogLink: "/projects/blogs/expense-tracker"
+    category: ["Case Study", "Development"],
+    imgPath: AetherApp,
+    title: "Aether - Form Filling App",
+    blogLink: "/projects/blogs/Case-Study"
   }
 ];
 
 function Projects() {
   const [filteredProjects, setFilteredProjects] = useState(projectsData);
   const [activeCategory, setActiveCategory] = useState("All");
+  const [{ themename }] = useContext(ThemeContext);
 
   const filterProjects = (category) => {
     setActiveCategory(category);
     setFilteredProjects(
-      category === "All" ? projectsData : projectsData.filter((p) => p.category === category)
+      category === "All"
+        ? projectsData
+        : projectsData.filter((p) => p.category.includes(category))
     );
   };
 
+
   return (
-    <section>
+    <section className={`projects-container ${themename}`}>
       <Container fluid className="project-section">
         <Container>
-          <h1 className="project-heading">My Recent <strong className="Fluorescent-Blue">Works</strong></h1>
-          <p>Here are some projects I've worked on recently.</p>
+          <h1 className="project-heading">My Projects</h1>
 
-          <ButtonGroup className="filter-buttons">
-            {["All", "Development", "Graphic Design"].map((category) => (
-              <Button
-                key={category}
-                className={`filter-button ${activeCategory === category ? "active" : ""}`}
-                onClick={() => filterProjects(category)}
-              >
-                {category}
-              </Button>
-            ))}
-          </ButtonGroup>
+          <div className="button-container">
+            <ButtonGroup className="filter-buttons">
+              {["All", "Case Study", "Development", "Graphic Design", "UI/UX Design"].map(
+                (category) => (
+                  <Button
+                    key={category}
+                    className={`filter-button ${activeCategory === category ? "active" : ""}`}
+                    onClick={() => filterProjects(category)}
+                  >
+                    {category}
+                  </Button>
+                )
+              )}
+            </ButtonGroup>
+          </div>
 
           <div className="project-grid">
             {filteredProjects.map((project) => (
-              <ProjectCard key={project.id} {...project} />
+              <ProjectCard 
+                key={project.id} 
+                {...project} 
+              />
             ))}
           </div>
         </Container>
