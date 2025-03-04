@@ -183,7 +183,7 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #f9f3d9;
+  background-color: #f9f3d9; 
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -193,12 +193,13 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-.menu-thumbnail {
+
+.blog-content .menu-thumbnail {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain;
-  object-position: top; 
+  object-fit: contain !important;
+  object-position: top !important; 
 }
 
 .menu-image {
@@ -232,6 +233,13 @@
 .menu-mockup-image:hover {
   transform: scale(1.02);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.project-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 .before-after-container {
