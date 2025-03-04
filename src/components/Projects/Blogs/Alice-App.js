@@ -1,121 +1,47 @@
-import React, { useContext, useState, useCallback } from "react";
-import { ThemeContext } from "../../../Context/theme"; 
+import React, { useContext } from "react";
+import { ThemeContext } from "../../../Context/theme";
 import { Link } from "react-router-dom";
-import Menuhero from "../../../Assets/Projects/menu_mockup1.jpg";
-import Menu_before from "../../../Assets/Projects/menu-4.jpg";
-import Menu_after from "../../../Assets/Projects/menu-1.jpg";
-import SunnyMenu1 from "../../../Assets/Projects/menu-1.jpg";
-import SunnyMenu2 from "../../../Assets/Projects/menu-2.jpg";
-import SunnyMenu3 from "../../../Assets/Projects/menu-3.jpg";
-import MenuMockup from "../../../Assets/Projects/menu_mockup2.jpg";
+import Alicehero from "../../../Assets/Projects/alice_mockup.png";
+import AliceGraphic1 from "../../../Assets/Projects/alice_quiz_1.png";
+import AliceGraphic2 from "../../../Assets/Projects/alice_quiz_2.png";
+import AliceGraphic3 from "../../../Assets/Projects/alice_quiz_3.png";
+import AliceGraphic4 from "../../../Assets/Projects/alice_quiz_4.png";
+import AliceGraphic5 from "../../../Assets/Projects/alice_quiz_5.png";
+import AliceGraphic6 from "../../../Assets/Projects/alice_quiz_6.png";
+import WonderlandVideo from "../../../Assets/Projects/Wonderland.mp4";
+import "./blog.css";
 
-import "./blog.css"; 
-
-function MenuDesign() {
+function AliceApp() {
   const [{ themename }] = useContext(ThemeContext);
-  const [showSlideshow, setShowSlideshow] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  
-  const blogNavigation = {
-    prev: {
-      path: "/projects/blogs/Can-design", 
-      title: "Can Design"
-    },
-    next: {
-      path: "/projects/blogs/Alice-App", 
-      title: "Alice Wonderland - Stress Relief App"
-    }
-  };
-  
-  const mockupImages = [
-    { src: SunnyMenu1, alt: "SunnySide Menu Design Page 1", caption: "Menu Page 1" },
-    { src: SunnyMenu2, alt: "SunnySide Menu Design Page 2", caption: "Menu Page 2" },
-    { src: SunnyMenu3, alt: "SunnySide Menu Design Page 3", caption: "Menu Page 3" },
-    { src: MenuMockup, alt: "SunnySide Menu Mockup", caption: "Menu Mockup" }
-  ];
-  
-  const openSlideshow = useCallback((index) => {
-    setCurrentSlide(index);
-    setShowSlideshow(true);
-    document.body.style.overflow = 'hidden'; 
-  }, []);
-  
-  const closeSlideshow = useCallback(() => {
-    setShowSlideshow(false);
-    document.body.style.overflow = 'auto';
-  }, []);
-  
-  const prevSlide = useCallback((e) => {
-    e.stopPropagation();
-    setCurrentSlide((prev) => (prev === 0 ? mockupImages.length - 1 : prev - 1));
-  }, [mockupImages.length]);
-  
-  const nextSlide = useCallback((e) => {
-    e.stopPropagation();
-    setCurrentSlide((prev) => (prev === mockupImages.length - 1 ? 0 : prev + 1));
-  }, [mockupImages.length]);
-  
-  const goToSlide = useCallback((index) => {
-    setCurrentSlide(index);
-  }, []);
-  
-  const handleKeyDown = useCallback((e) => {
-    if (!showSlideshow) return;
-    
-    if (e.key === 'Escape') {
-      closeSlideshow();
-    } else if (e.key === 'ArrowLeft') {
-      setCurrentSlide((prev) => (prev === 0 ? mockupImages.length - 1 : prev - 1));
-    } else if (e.key === 'ArrowRight') {
-      setCurrentSlide((prev) => (prev === mockupImages.length - 1 ? 0 : prev + 1));
-    }
-  }, [showSlideshow, closeSlideshow, mockupImages.length]);
-
-  const handleSlider = useCallback(() => {
-    const slider = document.querySelector('.slider');
-    const beforeImage = document.querySelector('.image-before');
-    const sliderLine = document.querySelector('.slider-line');
-    const sliderButton = document.querySelector('.slider-button');
-
-    if (slider && beforeImage && sliderLine && sliderButton) {
-      function updateSlider() {
-        const sliderPos = slider.value;
-        beforeImage.style.clipPath = `inset(0 ${100 - sliderPos}% 0 0)`;
-        sliderLine.style.left = `${sliderPos}%`;
-        sliderButton.style.left = `${sliderPos}%`;
-      }
-
-      slider.addEventListener('input', updateSlider);
-      updateSlider(); 
-
-      return () => {
-        slider.removeEventListener('input', updateSlider);
-      };
-    }
-    return () => {};
-  }, []);
-
-  React.useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    const cleanup = handleSlider();
-    
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'auto';
-      cleanup();
-    };
-  }, [handleKeyDown, handleSlider]);
 
   return (
     <div className={`blog-page ${themename}`}>
       <div className="blog-container">
         <div className="blog-header">
           <div className="blog-text">
-            <h1 className="blog-title">MENU DESIGN</h1>
-            <p className="blog-category">GRAPHIC DESIGN</p>
+            <h1 className="alice-blog-title">
+              Wonderland <br /> - A Stress Relief App
+            </h1>
+            <p className="blog-category">
+              UI/UX Designer | GRAPHIC DESIGNER | FULL STACK WEB DEVELOPER
+            </p>
+            <div className="alice-button-website">
+              <a
+                href="https://wonderland-alice.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="alice-website-link-button"
+              >
+                Try the App
+              </a>
+            </div>
           </div>
           <div className="blog-image-container">
-            <img src={Menuhero} alt="Hero image of Menu Design" className="blog-image" />
+            <img
+              src={Alicehero}
+              alt="Alice App homepage mockup"
+              className="blog-image"
+            />
           </div>
         </div>
 
@@ -124,187 +50,121 @@ function MenuDesign() {
         <div className="blog-content">
           <h3 className="blog-subheading">PROJECT OVERVIEW</h3>
           <p>
-            SunnySide is a brunch restaurant catering to both families and individuals. For this project, I designed a menu for the restaurant, which embraces an old British-style aesthetic. The design, created using Adobe Illustrator and InDesign, aims to evoke a clean, inviting, and warmly welcoming atmosphere.
+            Wonderland is an innovative app crafted to explore users’ mental
+            well-being interactively. Inspired by "Alice in Wonderland," it
+            evaluates burnout levels through a playful quiz. By incorporating
+            elements from the classic story, we guide users on a self-reflective
+            journey into their mental health.
           </p>
-          
-          <h3 className="blog-subheading">The Menu</h3>
-          <div className="menu-row-container">
-            {mockupImages.slice(0, 3).map((image, index) => (
-              <div className="menu-item" key={index} onClick={() => openSlideshow(index)}>
-                <img 
-                  src={image.src} 
-                  alt={image.alt} 
-                  className="menu-thumbnail" 
+
+          <h3 className="blog-subheading">Initial Design</h3>
+          <p>
+            Our initial design was created using Figma, with hand-drawn
+            graphics using Procreate and Adobe Illustrator.
+          </p>
+          <div className="figma-embed-container">
+            <iframe
+              className="figma-iframe"
+              src="https://embed.figma.com/proto/DHJkaoADJzWfAHR4yW4XX8/MDIA-2106-%E2%80%93-Wonderland-Set-H?node-id=1187-2257&p=f&scaling=scale-down&content-scaling=fixed&page-id=1187%3A1437&embed-host=share"
+              allowFullScreen
+              title="Initial Wonderland Mockup"
+            ></iframe>
+          </div>
+
+          <h3 className="blog-subheading">Usability Test Report</h3>
+          <p>
+            We conducted a usability study to assess user navigation,
+            satisfaction, and overall effectiveness in stress relief.
+          </p>
+          <div className="usability-test-ppt">
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.canva.com/design/DAGD1CLyzPU/webzOLGqqJ1lHQ-QUV8-DQ/view?embed"
+              allowFullScreen
+              title="Wonderland Usability Report"
+            ></iframe>
+            <a
+              href="https://www.canva.com/design/DAGD1CLyzPU/webzOLGqqJ1lHQ-QUV8-DQ/view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Full Report
+            </a>
+          </div>
+
+          <h3 className="blog-subheading">Changes After Usability Test</h3>
+          <p>
+            Feedback revealed users struggled with too much descriptive text and
+            unclear navigation. We improved accessibility by simplifying content
+            and enhancing the quiz interface.
+          </p>
+
+          <h3 className="blog-subheading">Final Design</h3>
+          <div className="figma-embed-container">
+            <iframe
+              className="figma-iframe"
+              src="https://embed.figma.com/proto/DHJkaoADJzWfAHR4yW4XX8/MDIA-2106-%E2%80%93-Wonderland-Set-H?node-id=1468-2398&p=f&scaling=scale-down&content-scaling=fixed&page-id=7%3A24&starting-point-node-id=1468%3A2398&embed-host=share"
+              allowFullScreen
+              title="Final Wonderland Mockup"
+            ></iframe>
+          </div>
+
+          <h3 className="blog-subheading">Development Process</h3>
+          <p>
+            Built with Next.js, Wonderland integrates OpenAI for chatbot
+            features. The app includes AI-generated calming music and a
+            quiz-based navigation system.
+          </p>
+          <p>
+            <a
+              href="https://github.com/jellygz/wonderland"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View the GitHub Repository
+            </a>
+          </p>
+
+          <h3 className="blog-subheading">Demo of Our App</h3>
+          <div className="wonderland-video-mockup">
+            <video controls className="wonderland-video">
+              <source src={WonderlandVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <h3 className="blog-subheading">Images Created</h3>
+          <div className="wonderland-graphics-section">
+            {[AliceGraphic1, AliceGraphic2, AliceGraphic3, AliceGraphic4, AliceGraphic5, AliceGraphic6].map(
+              (image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`Wonderland UI design ${index + 1}`}
+                  className="wonderland-designed-image"
                 />
-              </div>
-            ))}
+              )
+            )}
           </div>
 
-          <h3 className="blog-subheading">Mockup</h3>
-          <div className="mockup-section">
-            <img 
-              src={MenuMockup} 
-              alt="SunnySide Menu Mockup" 
-              className="menu-mockup-image" 
-              onClick={() => openSlideshow(3)}
-            />
-          </div>
-
-          <h3 className="blog-subheading">Struggles</h3>
-          <p>
-            I faced several challenges while working on this menu project. The first was designing the brand logo and selecting a name for the restaurant. As someone who isn't a morning person and often skips breakfast—an unhealthy habit—I wanted this design to serve as a reminder to embrace the warmth and energy of a hearty breakfast and to cherish those moments with family.
-          </p>
-          <p>
-            I named the restaurant SunnySide to reflect the brightness and positivity of the morning. The color palette consists of light yellow, orange, brown, and black, evoking warmth and familiarity. The logo, a combination of a chef's hat and rays of sunshine, symbolizes the nourishment and vitality that a well-prepared breakfast provides. I incorporated brown to add a classic British touch and to emphasize the chef's role in starting the day off right.
-          </p>
-          <p>
-            After completing the initial version, I realized the design felt too plain, with excessive content condensed into a single page and a lack of visual elements to guide the reader. To address this, I redesigned the menu, incorporating images and vector graphics to make it more engaging, structured, and interactive.
-          </p>
-
-          <h3 className="blog-subheading">Success</h3>
-          <p>
-            To enhance the design, I introduced a soft yellow background and carefully curated vector images created in Illustrator to add depth and visual appeal. Additionally, I integrated a QR code, making the menu more interactive and modern.
-          </p>
-          <p>
-            I also refined the tab spacing and alignment of product names and prices to improve readability and create a more organized, polished, and user-friendly layout. These adjustments resulted in a cohesive, visually appealing menu that effectively captures the essence of the restaurant's brand.
-          </p>
-
-          <h3 className="blog-subheading">Before & After</h3>
-          <div className="before-after-container">
-            <div className="image-container">
-              <img
-                className="image-before slider-image"
-                src={Menu_before}
-                alt="Before menu design"
-              />
-              <img
-                className="image-after slider-image"
-                src={Menu_after}
-                alt="After menu design"
-              />
-            </div>
-
-            <input
-              type="range"
-              min="0"
-              max="100"
-              defaultValue="50"
-              aria-label="Percentage of before photo shown"
-              className="slider"
-            />
-            <div className="slider-line" aria-hidden="true"></div>
-            <div className="slider-button" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                fill="currentColor"
-                viewBox="0 0 256 256"
-              >
-                <rect width="256" height="256" fill="none"></rect>
-                <line
-                  x1="128"
-                  y1="40"
-                  x2="128"
-                  y2="216"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="16"
-                ></line>
-                <line
-                  x1="96"
-                  y1="128"
-                  x2="16"
-                  y2="128"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="16"
-                ></line>
-                <polyline
-                  points="48 160 16 128 48 96"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="16"
-                ></polyline>
-                <line
-                  x1="160"
-                  y1="128"
-                  x2="240"
-                  y2="128"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="16"
-                ></line>
-                <polyline
-                  points="208 96 240 128 208 160"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="16"
-                ></polyline>
-              </svg>
-            </div>
-          </div>
-          
           <div className="blog-navigation">
-            {blogNavigation.prev && (
-              <Link to={blogNavigation.prev.path} className="nav-link prev">
-                <span className="nav-arrow nav-prev-arrow">←</span>
-                <span className="nav-text">Previous: {blogNavigation.prev.title}</span>
-              </Link>
-            )}
-            
-            {blogNavigation.next && (
-              <Link to={blogNavigation.next.path} className="nav-link next">
-                <span className="nav-text">Next: {blogNavigation.next.title}</span>
-                <span className="nav-arrow nav-next-arrow">→</span>
-              </Link>
-            )}
+            <Link to="/projects/blogs/Menu-design" className="nav-link prev">
+              <span className="nav-arrow nav-prev-arrow">←</span>
+              <span className="nav-text">Previous: SunnySide Menu Design</span>
+            </Link>
+
+            <Link to="/projects/blogs/Case-Study" className="nav-link next">
+              <span className="nav-text">
+                Next: Aether Case Study - Form Filling App
+              </span>
+              <span className="nav-arrow nav-next-arrow">→</span>
+            </Link>
           </div>
         </div>
       </div>
-      
-      {showSlideshow && (
-        <div className="slideshow-modal" onClick={closeSlideshow}>
-          <div className="slideshow-container" onClick={(e) => e.stopPropagation()}>
-            <button className="close-button" onClick={closeSlideshow}>×</button>
-            
-            <div className="slide">
-              <img 
-                src={mockupImages[currentSlide].src} 
-                alt={mockupImages[currentSlide].alt} 
-                className="slide-image" 
-              />
-            </div>
-            
-            <p className="slide-caption">{mockupImages[currentSlide].caption}</p>
-            
-            <div className="slide-indicators">
-              {mockupImages.map((_, index) => (
-                <div 
-                  key={index} 
-                  className={`indicator ${index === currentSlide ? 'active' : ''}`}
-                  onClick={() => goToSlide(index)}
-                ></div>
-              ))}
-            </div>
-            
-            <button className="nav-button prev-button" onClick={prevSlide}>←</button>
-            <button className="nav-button next-button" onClick={nextSlide}>→</button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
 
-export default MenuDesign;
+export default AliceApp;
