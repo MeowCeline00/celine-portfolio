@@ -1,37 +1,37 @@
 import React, { useContext, useState, useCallback } from "react";
 import { ThemeContext } from "../../../Context/theme"; 
 import { Link } from "react-router-dom";
-import PSicon from "../../../Assets/Projects/ps.png";
-import Illustratoricon from "../../../Assets/Projects/illustrator.png";
-import CanHero from "../../../Assets/Projects/can_design.jpg";
-import Canfront from "../../../Assets/Projects/original_taste_front.jpg";
-import Canflavors from "../../../Assets/Projects/can_various_flavors.jpg";
-import Canside from "../../../Assets/Projects/original_taste_side.jpg";
-import Canspread from "../../../Assets/Projects/can_spread_apple.jpg";
+import Menuhero from "../../../Assets/Projects/menu_mockup1.jpg";
+import Menu_before from "../../../Assets/Projects/menu-4.jpg";
+import Menu_after from "../../../Assets/Projects/menu-1.jpg";
+import SunnyMenu1 from "../../../Assets/Projects/menu-1.jpg";
+import SunnyMenu2 from "../../../Assets/Projects/menu-2.jpg";
+import SunnyMenu3 from "../../../Assets/Projects/menu-3.jpg";
+import MenuMockup from "../../../Assets/Projects/menu_mockup2.jpg";
 
 import "./blog.css"; 
 
-function CanDesign() {
+function MenuDesign() {
   const [{ themename }] = useContext(ThemeContext);
   const [showSlideshow, setShowSlideshow] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const blogNavigation = {
     prev: {
-      path: "/projects/blogs/logo-design", 
-      title: "Logo Design"
+      path: "/projects/blogs/Can-design", 
+      title: "Can Design"
     },
     next: {
-      path: "/projects/blogs/web-design", 
-      title: "Web Design"
+      path: "/projects/blogs/Alice-App", 
+      title: "Alice Wonderland - Stress Relief App"
     }
   };
   
   const mockupImages = [
-    { src: Canfront, alt: "Forest Vitae Can Front Design", caption: "Pure Taste - Front" },
-    { src: Canside, alt: "Forest Vitae Can Side Design", caption: "Pure Taste - Side" },
-    { src: Canspread, alt: "Forest Vitae Can Spread View", caption: "Apple Taste - Spread View" },
-    { src: Canflavors, alt: "Forest Vitae Can Different Flavors", caption: "Different Taste of Flavors" }
+    { src: SunnyMenu1, alt: "SunnySide Menu Design Page 1", caption: "Menu Page 1" },
+    { src: SunnyMenu2, alt: "SunnySide Menu Design Page 2", caption: "Menu Page 2" },
+    { src: SunnyMenu3, alt: "SunnySide Menu Design Page 3", caption: "Menu Page 3" },
+    { src: MenuMockup, alt: "SunnySide Menu Mockup", caption: "Menu Mockup" }
   ];
   
   const openSlideshow = useCallback((index) => {
@@ -44,7 +44,6 @@ function CanDesign() {
     setShowSlideshow(false);
     document.body.style.overflow = 'auto';
   }, []);
-  
   
   const prevSlide = useCallback((e) => {
     e.stopPropagation();
@@ -72,76 +71,188 @@ function CanDesign() {
     }
   }, [showSlideshow, closeSlideshow, mockupImages.length]);
 
+  const handleSlider = useCallback(() => {
+    const slider = document.querySelector('.slider');
+    const beforeImage = document.querySelector('.image-before');
+    const sliderLine = document.querySelector('.slider-line');
+    const sliderButton = document.querySelector('.slider-button');
+
+    if (slider && beforeImage && sliderLine && sliderButton) {
+      function updateSlider() {
+        const sliderPos = slider.value;
+        beforeImage.style.clipPath = `inset(0 ${100 - sliderPos}% 0 0)`;
+        sliderLine.style.left = `${sliderPos}%`;
+        sliderButton.style.left = `${sliderPos}%`;
+      }
+
+      slider.addEventListener('input', updateSlider);
+      updateSlider(); 
+
+      return () => {
+        slider.removeEventListener('input', updateSlider);
+      };
+    }
+    return () => {};
+  }, []);
+
   React.useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
+    const cleanup = handleSlider();
+    
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'auto'; 
+      document.body.style.overflow = 'auto';
+      cleanup();
     };
-  }, [handleKeyDown]);
+  }, [handleKeyDown, handleSlider]);
 
   return (
     <div className={`blog-page ${themename}`}>
       <div className="blog-container">
         <div className="blog-header">
           <div className="blog-text">
-            <h1 className="blog-title">CAN DESIGN</h1>
+            <h1 className="blog-title">MENU DESIGN</h1>
             <p className="blog-category">GRAPHIC DESIGN</p>
           </div>
           <div className="blog-image-container">
-            <img src={CanHero} alt="Forest Vitae Can Design" className="blog-image" />
+            <img src={Menuhero} alt="Hero image of Menu Design" className="blog-image" />
           </div>
         </div>
 
-        <p className="blog-date">OCT. 2024 - NOV. 2024</p>
+        <p className="blog-date">JAN. 2024 - APRIL 2024</p>
 
         <div className="blog-content">
           <h3 className="blog-subheading">PROJECT OVERVIEW</h3>
           <p>
-            ForestVitae is an imaginary company that produces a variety of flavored 
-            sparkling waters. For this project, I designed three versions of can 
-            packaging to represent different flavors: pure spring sparkling water, 
-            chocolate, and apple. These designs were created using Photoshop and 
-            Adobe Illustrator, with the goal of evoking the sensation of enjoying 
-            ingredients sourced directly from a natural forest when drinking the refreshment.
+            SunnySide is a brunch restaurant catering to both families and individuals. For this project, I designed a menu for the restaurant, which embraces an old British-style aesthetic. The design, created using Adobe Illustrator and InDesign, aims to evoke a clean, inviting, and warmly welcoming atmosphere.
           </p>
           
-          <h3 className="blog-subheading">Main Tools Used</h3>
-          <div className="blog-icon-container">
-            <img src={PSicon} alt="Photoshop icon" className="blog-icon-image" />
-            <img src={Illustratoricon} alt="Illustrator icon" className="blog-icon-image" />
-          </div>
-          
-          <h3 className="blog-subheading">Struggles</h3>
-          <p>
-            The main challenge I faced was blending the photo of the man with the landscape while incorporating elements that 
-            pop out around his head to create a brainstorming effect. To achieve this, I watched instructional videos on YouTube, 
-            specifically following a tutorial from <a href="https://youtu.be/iOYz669WNpU?si=UtCl5sd5aYnnbThu" target="_blank" rel="noopener noreferrer"><strong>LetsPhotoshop</strong></a>.
-          </p>
-          <p>
-            Another challenge was integrating the layout of the ingredients and labels into my design. Initially, I overlooked the fact 
-            that the can could be rotated, meaning my design had to accommodate both official languages—English and French—on 
-            opposite sides. This required adjusting the image size and repositioning the label content accordingly.
-          </p>
-          
-          <h3 className="blog-subheading">Success</h3>
-          <p>
-            With guidance from Professor Daemon in BCIT's D3 Program, I successfully created three versions of the drink. The final designs are more consistent and feature properly formatted labels.
-          </p>
-          
-          <h3 className="blog-subheading">Mockups</h3>
-          <div className="can-mockup-container">
-            {mockupImages.map((image, index) => (
-              <div className="mockup-section" key={index}>
-                <h4 className="mockup-subheading">{image.caption}</h4>
+          <h3 className="blog-subheading">The Menu</h3>
+          <div className="menu-row-container">
+            {mockupImages.slice(0, 3).map((image, index) => (
+              <div className="menu-item" key={index} onClick={() => openSlideshow(index)}>
                 <img 
                   src={image.src} 
                   alt={image.alt} 
-                  className="can-image" 
-                  onClick={() => openSlideshow(index)}
+                  className="menu-thumbnail" 
                 />
               </div>
             ))}
+          </div>
+
+          <h3 className="blog-subheading">Mockup</h3>
+          <div className="mockup-section">
+            <img 
+              src={MenuMockup} 
+              alt="SunnySide Menu Mockup" 
+              className="menu-mockup-image" 
+              onClick={() => openSlideshow(3)}
+            />
+          </div>
+
+          <h3 className="blog-subheading">Struggles</h3>
+          <p>
+            I faced several challenges while working on this menu project. The first was designing the brand logo and selecting a name for the restaurant. As someone who isn't a morning person and often skips breakfast—an unhealthy habit—I wanted this design to serve as a reminder to embrace the warmth and energy of a hearty breakfast and to cherish those moments with family.
+          </p>
+          <p>
+            I named the restaurant SunnySide to reflect the brightness and positivity of the morning. The color palette consists of light yellow, orange, brown, and black, evoking warmth and familiarity. The logo, a combination of a chef's hat and rays of sunshine, symbolizes the nourishment and vitality that a well-prepared breakfast provides. I incorporated brown to add a classic British touch and to emphasize the chef's role in starting the day off right.
+          </p>
+          <p>
+            After completing the initial version, I realized the design felt too plain, with excessive content condensed into a single page and a lack of visual elements to guide the reader. To address this, I redesigned the menu, incorporating images and vector graphics to make it more engaging, structured, and interactive.
+          </p>
+
+          <h3 className="blog-subheading">Success</h3>
+          <p>
+            To enhance the design, I introduced a soft yellow background and carefully curated vector images created in Illustrator to add depth and visual appeal. Additionally, I integrated a QR code, making the menu more interactive and modern.
+          </p>
+          <p>
+            I also refined the tab spacing and alignment of product names and prices to improve readability and create a more organized, polished, and user-friendly layout. These adjustments resulted in a cohesive, visually appealing menu that effectively captures the essence of the restaurant's brand.
+          </p>
+
+          <h3 className="blog-subheading">Before & After</h3>
+          <div className="before-after-container">
+            <div className="image-container">
+              <img
+                className="image-before slider-image"
+                src={Menu_before}
+                alt="Before menu design"
+              />
+              <img
+                className="image-after slider-image"
+                src={Menu_after}
+                alt="After menu design"
+              />
+            </div>
+
+            <input
+              type="range"
+              min="0"
+              max="100"
+              defaultValue="50"
+              aria-label="Percentage of before photo shown"
+              className="slider"
+            />
+            <div className="slider-line" aria-hidden="true"></div>
+            <div className="slider-button" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                viewBox="0 0 256 256"
+              >
+                <rect width="256" height="256" fill="none"></rect>
+                <line
+                  x1="128"
+                  y1="40"
+                  x2="128"
+                  y2="216"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                ></line>
+                <line
+                  x1="96"
+                  y1="128"
+                  x2="16"
+                  y2="128"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                ></line>
+                <polyline
+                  points="48 160 16 128 48 96"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                ></polyline>
+                <line
+                  x1="160"
+                  y1="128"
+                  x2="240"
+                  y2="128"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                ></line>
+                <polyline
+                  points="208 96 240 128 208 160"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                ></polyline>
+              </svg>
+            </div>
           </div>
           
           <div className="blog-navigation">
@@ -161,7 +272,7 @@ function CanDesign() {
           </div>
         </div>
       </div>
-    
+      
       {showSlideshow && (
         <div className="slideshow-modal" onClick={closeSlideshow}>
           <div className="slideshow-container" onClick={(e) => e.stopPropagation()}>
@@ -196,4 +307,4 @@ function CanDesign() {
   );
 }
 
-export default CanDesign;
+export default MenuDesign;
