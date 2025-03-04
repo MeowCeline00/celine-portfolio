@@ -158,6 +158,176 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
+.menu-mockup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.menu-row-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin: 30px 0;
+  gap: 15px;
+}
+
+.menu-item {
+  flex: 1;
+  width: 33.33%;
+  padding: 0;
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f3d9;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.menu-thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: top; 
+}
+
+.menu-image {
+  max-width: 70%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  align-self: center;
+}
+
+.menu-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.menu-mockup-image {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-mockup-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.before-after-container {
+  width: 100%;
+  margin: 40px auto;
+  max-width: 600px; 
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.slider-image {
+  width: 100%;
+  display: block;
+  max-width: 100%;
+}
+
+.image-before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  clip-path: inset(0 50% 0 0);
+}
+
+.image-after {
+  position: relative;
+  z-index: 0;
+}
+
+.slider {
+  position: absolute;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  margin: 0;
+  z-index: 3;
+  top: 0;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background-color: #fff;
+  z-index: 2;
+  transform: translateX(-50%);
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  background-color: #F2B705;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
 .blog-navigation {
   display: flex;
   justify-content: space-between;
@@ -262,7 +432,6 @@
   z-index: 1010;
 }
 
-
 .nav-button {
   position: absolute;
   top: 50%;
@@ -357,8 +526,12 @@
     max-width: 90%;
   }
   
-  .can-image {
-    max-width: 70%; 
+  .can-image, .menu-image {
+    max-width: 80%; 
+  }
+  
+  .menu-mockup-image {
+    max-width: 90%;
   }
   
   .nav-button {
@@ -372,6 +545,10 @@
   
   .next-button {
     right: -50px;
+  }
+  
+  .before-after-container {
+    max-width: 90%;
   }
 }
 
@@ -401,8 +578,13 @@
     max-width: 100%;
   }
   
-  .can-image {
-    max-width: 80%;  
+  .can-image, .menu-image {
+    max-width: 90%;  
+  }
+  
+  .menu-mockup-image {
+    width: 100%;
+    max-width: 100%;
   }
   
   .slideshow-container {
@@ -429,6 +611,22 @@
   
   .blog-navigation {
     margin-top: 40px;
+  }
+  
+  .menu-row-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .menu-item {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .slider-button {
+    width: 32px;
+    height: 32px;
   }
 }
 
@@ -458,8 +656,8 @@
     max-width: 100%;
   }
   
-  .can-image {
-    max-width: 90%; 
+  .can-image, .menu-image, .menu-mockup-image {
+    max-width: 100%; 
   }
   
   .slide-caption {
@@ -469,5 +667,14 @@
   .close-button {
     top: -30px;
     font-size: 1.5rem;
+  }
+  
+  .slider-button {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .before-after-container {
+    max-width: 100%;
   }
 }

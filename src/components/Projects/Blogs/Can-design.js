@@ -18,12 +18,12 @@ function CanDesign() {
   
   const blogNavigation = {
     prev: {
-      path: "/projects/blogs/logo-design", 
-      title: "Logo Design"
+      path: "/projects/blogs/Case-Study", 
+      title: "Aether - Form Filling App"
     },
     next: {
-      path: "/projects/blogs/web-design", 
-      title: "Web Design"
+      path: "/projects/blogs/Menu-design", 
+      title: "SunnySide Restaurant - Menu"
     }
   };
   
