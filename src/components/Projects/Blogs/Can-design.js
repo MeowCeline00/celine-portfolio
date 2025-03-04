@@ -1,5 +1,6 @@
 import React, { useContext, useState, useCallback } from "react";
 import { ThemeContext } from "../../../Context/theme"; 
+import { Link } from "react-router-dom";
 import PSicon from "../../../Assets/Projects/ps.png";
 import Illustratoricon from "../../../Assets/Projects/illustrator.png";
 import CanHero from "../../../Assets/Projects/can_design.jpg";
@@ -15,6 +16,17 @@ function CanDesign() {
   const [showSlideshow, setShowSlideshow] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   
+  const blogNavigation = {
+    prev: {
+      path: "/projects/blogs/logo-design", 
+      title: "Logo Design"
+    },
+    next: {
+      path: "/projects/blogs/web-design", 
+      title: "Web Design"
+    }
+  };
+  
   const mockupImages = [
     { src: Canfront, alt: "Forest Vitae Can Front Design", caption: "Pure Taste - Front" },
     { src: Canside, alt: "Forest Vitae Can Side Design", caption: "Pure Taste - Side" },
@@ -25,13 +37,14 @@ function CanDesign() {
   const openSlideshow = useCallback((index) => {
     setCurrentSlide(index);
     setShowSlideshow(true);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'; 
   }, []);
   
   const closeSlideshow = useCallback(() => {
     setShowSlideshow(false);
-    document.body.style.overflow = 'auto'; 
+    document.body.style.overflow = 'auto';
   }, []);
+  
   
   const prevSlide = useCallback((e) => {
     e.stopPropagation();
@@ -130,9 +143,25 @@ function CanDesign() {
               </div>
             ))}
           </div>
+          
+          <div className="blog-navigation">
+            {blogNavigation.prev && (
+              <Link to={blogNavigation.prev.path} className="nav-link prev">
+                <span className="nav-arrow nav-prev-arrow">←</span>
+                <span className="nav-text">Previous: {blogNavigation.prev.title}</span>
+              </Link>
+            )}
+            
+            {blogNavigation.next && (
+              <Link to={blogNavigation.next.path} className="nav-link next">
+                <span className="nav-text">Next: {blogNavigation.next.title}</span>
+                <span className="nav-arrow nav-next-arrow">→</span>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
-      
+    
       {showSlideshow && (
         <div className="slideshow-modal" onClick={closeSlideshow}>
           <div className="slideshow-container" onClick={(e) => e.stopPropagation()}>
