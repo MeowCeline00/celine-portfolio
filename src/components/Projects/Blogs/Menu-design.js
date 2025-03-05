@@ -1,6 +1,6 @@
 import React, { useContext, useState, useCallback } from "react";
 import { ThemeContext } from "../../../Context/theme"; 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Menuhero from "../../../Assets/Projects/menu_mockup1.jpg";
 import Menu_before from "../../../Assets/Projects/menu-4.jpg";
 import Menu_after from "../../../Assets/Projects/menu-1.jpg";
@@ -15,6 +15,7 @@ function MenuDesign() {
   const [{ themename }] = useContext(ThemeContext);
   const [showSlideshow, setShowSlideshow] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
   
   const blogNavigation = {
     prev: {
@@ -33,6 +34,12 @@ function MenuDesign() {
     { src: SunnyMenu3, alt: "SunnySide Menu Design Page 3", caption: "Menu Page 3" },
     { src: MenuMockup, alt: "SunnySide Menu Mockup", caption: "Menu Mockup" }
   ];
+  
+  const handleNavigation = (e, path) => {
+    e.preventDefault();
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
   
   const openSlideshow = useCallback((index) => {
     setCurrentSlide(index);
@@ -163,7 +170,8 @@ function MenuDesign() {
 
           <h3 className="blog-subheading">Success</h3>
           <p>
-            To enhance the design, I introduced a soft yellow background and carefully curated vector images created in Illustrator to add depth and visual appeal. Additionally, I integrated a QR code, making the menu more interactive and modern.
+            With guidance from Professor Daemon in BCIT's D3 Program, I introduced a soft yellow background and carefully curated vector images created in Illustrator to add depth and visual appeal. Additionally, I integrated a QR code, making the menu more interactive and modern.
+            
           </p>
           <p>
             I also refined the tab spacing and alignment of product names and prices to improve readability and create a more organized, polished, and user-friendly layout. These adjustments resulted in a cohesive, visually appealing menu that effectively captures the essence of the restaurant's brand.
@@ -257,17 +265,25 @@ function MenuDesign() {
           
           <div className="blog-navigation">
             {blogNavigation.prev && (
-              <Link to={blogNavigation.prev.path} className="nav-link prev">
+              <a 
+                href={blogNavigation.prev.path} 
+                className="nav-link prev"
+                onClick={(e) => handleNavigation(e, blogNavigation.prev.path)}
+              >
                 <span className="nav-arrow nav-prev-arrow">←</span>
                 <span className="nav-text">Previous: {blogNavigation.prev.title}</span>
-              </Link>
+              </a>
             )}
             
             {blogNavigation.next && (
-              <Link to={blogNavigation.next.path} className="nav-link next">
+              <a 
+                href={blogNavigation.next.path} 
+                className="nav-link next"
+                onClick={(e) => handleNavigation(e, blogNavigation.next.path)}
+              >
                 <span className="nav-text">Next: {blogNavigation.next.title}</span>
                 <span className="nav-arrow nav-next-arrow">→</span>
-              </Link>
+              </a>
             )}
           </div>
         </div>

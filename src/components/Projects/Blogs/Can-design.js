@@ -1,6 +1,6 @@
 import React, { useContext, useState, useCallback } from "react";
 import { ThemeContext } from "../../../Context/theme"; 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PSicon from "../../../Assets/Projects/ps.png";
 import Illustratoricon from "../../../Assets/Projects/illustrator.png";
 import CanHero from "../../../Assets/Projects/can_design.jpg";
@@ -15,6 +15,7 @@ function CanDesign() {
   const [{ themename }] = useContext(ThemeContext);
   const [showSlideshow, setShowSlideshow] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
   
   const blogNavigation = {
     prev: {
@@ -33,6 +34,12 @@ function CanDesign() {
     { src: Canspread, alt: "Forest Vitae Can Spread View", caption: "Apple Taste - Spread View" },
     { src: Canflavors, alt: "Forest Vitae Can Different Flavors", caption: "Different Taste of Flavors" }
   ];
+  
+  const handleNavigation = (e, path) => {
+    e.preventDefault();
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
   
   const openSlideshow = useCallback((index) => {
     setCurrentSlide(index);
@@ -126,7 +133,7 @@ function CanDesign() {
           
           <h3 className="blog-subheading">Success</h3>
           <p>
-            With guidance from Professor Daemon in BCIT's D3 Program, I successfully created three versions of the drink. The final designs are more consistent and feature properly formatted labels.
+            With guidance from Professor Stephen in BCIT's D3 Program, I successfully created three versions of the drink. The final designs are more consistent and feature properly formatted labels.
           </p>
           
           <h3 className="blog-subheading">Mockups</h3>
@@ -146,17 +153,25 @@ function CanDesign() {
           
           <div className="blog-navigation">
             {blogNavigation.prev && (
-              <Link to={blogNavigation.prev.path} className="nav-link prev">
+              <a 
+                href={blogNavigation.prev.path} 
+                className="nav-link prev"
+                onClick={(e) => handleNavigation(e, blogNavigation.prev.path)}
+              >
                 <span className="nav-arrow nav-prev-arrow">←</span>
                 <span className="nav-text">Previous: {blogNavigation.prev.title}</span>
-              </Link>
+              </a>
             )}
             
             {blogNavigation.next && (
-              <Link to={blogNavigation.next.path} className="nav-link next">
+              <a 
+                href={blogNavigation.next.path} 
+                className="nav-link next"
+                onClick={(e) => handleNavigation(e, blogNavigation.next.path)}
+              >
                 <span className="nav-text">Next: {blogNavigation.next.title}</span>
                 <span className="nav-arrow nav-next-arrow">→</span>
-              </Link>
+              </a>
             )}
           </div>
         </div>

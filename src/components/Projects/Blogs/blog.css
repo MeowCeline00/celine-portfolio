@@ -66,19 +66,11 @@
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 5px;
-  padding-top: 50%;
-}
-
-.alice-blog-title {
-  font-size: 3rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 5px;
   padding-top: 20%;
 }
 
 .blog-category {
-  color: blue;
+  color: #044BD9;
   font-size: 1.2rem;
   font-weight: 600;
   text-decoration: none;
@@ -118,7 +110,8 @@
   font-size: 1.8rem;
   font-weight: bold;
   color: #d5a100;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
 
 .blog-icon-container {
@@ -200,7 +193,6 @@
   transform: scale(1.03);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
-
 
 .blog-content .menu-thumbnail {
   width: 100%;
@@ -692,5 +684,224 @@
   
   .before-after-container {
     max-width: 100%;
+  }
+}
+
+.alice-app .app-button-container {
+  margin-top: 20px;
+}
+
+.alice-app .visit-website-button {
+  display: inline-block;
+  background-color: #044BD9;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 25px;
+  border: 2px solid #044BD9;
+  font-size: 18px;
+  padding: 10px 25px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.alice-app .visit-website-button:hover {
+  background-color: #F2B705; 
+  color: #000; 
+  border-color: #F2B705;
+}
+
+.alice-app.dark .visit-website-button:hover {
+  background-color: #F2B705;
+  color: #000;
+}
+
+.alice-app .embed-container {
+  width: 100%;
+  margin: 25px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.alice-app .embed-iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  display: block;
+}
+
+.alice-app .embed-caption {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+}
+
+.alice-app.dark .embed-caption {
+  color: #ccc;
+}
+
+.alice-app .embed-caption a {
+  color: #044BD9;
+  text-decoration: none;
+}
+
+.alice-app.dark .embed-caption a {
+  color: #6FADFE;
+}
+
+.alice-app .link-box {
+  margin: 20px 0;
+  padding: 15px 20px;
+  background-color: #f6f8fa;
+  border-radius: 8px;
+  border-left: 4px solid #044BD9;
+  transition: all 0.3s ease;
+}
+
+.alice-app .link-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.alice-app.dark .link-box {
+  background-color: #1e1e1e;
+  border-left: 4px solid #6FADFE;
+}
+
+.alice-app .external-link {
+  display: block;
+  color: #044BD9;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.alice-app.dark .external-link {
+  color: #6FADFE;
+}
+
+.alice-app .video-wrapper {
+  width: 100%;
+  max-width: 450px;
+  margin: 25px auto;
+}
+
+.alice-app .video-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.alice-app .project-video {
+  width: 100%;
+  display: block;
+}
+
+.alice-app .wonderland-graphics-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 15px;
+  margin: 25px 0;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.alice-app .wonderland-graphic-item {
+  flex: 0 0 calc(16.666% - 12.5px);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; 
+}
+
+.alice-app.dark .wonderland-graphic-item {
+  background-color: #e0e0e0; 
+}
+
+.alice-app .wonderland-graphic-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.alice-app .wonderland-graphic-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #ffffff; 
+}
+
+.alice-app.dark .wonderland-graphic-image {
+  background-color: #e0e0e0; 
+}
+
+.alice-app .graphics-description {
+  margin-top: 20px;
+  line-height: 1.7;
+  text-align: justify;
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.alice-app.dark .graphics-description {
+  color: #ddd;
+}
+
+.alice-app .slide {
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.alice-app.dark .slide {
+  background-color: #e0e0e0;
+}
+
+.alice-app .slide-image {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+@media (max-width: 1024px) {
+  .alice-app .wonderland-graphics-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .alice-app .wonderland-graphic-item {
+    flex: 0 0 calc(33.333% - 10px);
+  }
+  
+  .alice-app .video-wrapper {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .alice-app .wonderland-graphic-item {
+    flex: 0 0 calc(50% - 7.5px);
+  }
+  
+  .alice-app .video-wrapper {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .alice-app .wonderland-graphic-item {
+    flex: 0 0 calc(50% - 7.5px);
+  }
+  
+  .alice-app .graphics-description {
+    font-size: 1rem;
+  }
+  
+  .alice-app .video-wrapper {
+    max-width: 280px;
   }
 }
