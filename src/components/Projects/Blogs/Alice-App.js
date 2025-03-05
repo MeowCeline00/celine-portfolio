@@ -47,7 +47,6 @@ function AliceApp() {
     setCurrentSlide((prev) => (prev === graphicImages.length - 1 ? 0 : prev + 1));
   };
 
-  // Custom navigation with scroll to top
   const handleNavigation = (e, path) => {
     e.preventDefault();
     navigate(path);
@@ -72,7 +71,7 @@ function AliceApp() {
                 rel="noopener noreferrer"
                 className="visit-website-button"
               >
-                Visit Website
+                Journey to our App
               </a>
             </div>
           </div>
