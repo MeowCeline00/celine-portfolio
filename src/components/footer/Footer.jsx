@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import {
   AiFillGithub,
@@ -7,11 +7,14 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { ThemeContext } from "../../Context/theme"; 
 import "./footer.css";
 
 function Footer() {
+  const [{ themename }] = useContext(ThemeContext);
+  
   return (
-    <Container fluid className="footer">
+    <Container fluid className={`footer ${themename}`}>
       <Row>
         <Col md="4" className="footer-copywright"></Col>
         <Col md="4" className="footer-copywright">
@@ -36,7 +39,7 @@ function Footer() {
             </li>
            
             <li className="social-icons">
-              <a
+            <a  
                 style={{ color: `var(--clr-primary)` }}
                 className="linkedin"
                 href="https://www.linkedin.com/in/congling-wang-22a475172/"
@@ -48,7 +51,7 @@ function Footer() {
               </a>
             </li>
             <li className="social-icons">
-              <a
+            <a  
                 style={{ color: `var(--clr-primary)` }}
                 className="instagram"
                 href="https://www.instagram.com/celinemumu_00/"
@@ -57,6 +60,18 @@ function Footer() {
                 aria-label="instagram"
               >
                 <AiFillInstagram />
+              </a>
+            </li>
+            <li className="social-icons">
+            <a  
+                style={{ color: `var(--clr-primary)` }}
+                className="email"
+                href="mailto:congling00369@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="email"
+              >
+                <AiOutlineMail />
               </a>
             </li>
           </ul>
