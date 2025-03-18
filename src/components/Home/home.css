@@ -215,6 +215,8 @@
   padding-top: 100px !important;
   padding-bottom: 20px !important;
   text-align: center !important;
+  max-width: 650px !important; 
+  margin: 0 auto !important;
 }
 
 .home-about-description-part {
@@ -227,6 +229,8 @@
   padding-top: 50px;
   font-size: 1.5em !important;
   text-align: left;
+  max-width: 100% !important; 
+  margin: 0 auto !important;
 }
 
 .home-about-social {

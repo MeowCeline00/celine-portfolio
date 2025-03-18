@@ -3,7 +3,6 @@
   padding-top: 150px !important;
   padding-bottom: 30px !important;
   background-color: var(--clr-bg) !important;
-
 }
 
 .tech-icons {
@@ -67,4 +66,120 @@
 }
 .git {
   color: var(--clr-primary);
+}
+
+
+.content-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+.section-header h1 {
+  font-size: 2.6em;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.home-about-description {
+  color: var(--clr-txt) !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  text-align: center;
+}
+
+.home-about-body {
+  padding-top: 20px;
+  font-size: 1.5em !important;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.tech-icons-container, 
+.tools-icons-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 0 !important;
+  padding-bottom: 30px !important;
+  text-align: center !important;
+  width: 100%;
+  max-width: 800px; 
+  margin: 0 auto;
+}
+
+.home-about-social {
+  text-align: center !important;
+  padding-top: 20px;
+  color: var(--clr-txt) !important;
+  max-width: 600px; 
+  margin: 0 auto;
+}
+
+.home-about-social-links {
+  justify-content: center !important;
+  padding-top: 10px !important;
+  display: flex !important;
+  padding-inline-start: 0 !important;
+  margin-top: 15px;
+  list-style: none;
+}
+
+.myAvtar {
+  justify-content: center !important;
+  padding-top: 2em !important;
+  display: flex;
+  align-items: flex-start;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.avatar-img {
+  max-width: 100%; 
+  width: 250px; 
+  height: auto;
+}
+
+@media (max-width: 992px) {
+  .content-container {
+    width: 90%;
+    padding: 0 15px;
+  }
+  
+  .home-about-body {
+    max-width: 90%;
+    font-size: 1.3em !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header h1 {
+    font-size: 2.2em;
+  }
+  
+  .home-about-body {
+    font-size: 1.2em !important;
+    text-align: center;
+    padding: 0 15px;
+  }
+  
+  .home-about-description {
+    padding-top: 0 !important;
+  }
+  
+  .avatar-img {
+    width: 200px;
+  }
 }
