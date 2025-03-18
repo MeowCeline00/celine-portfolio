@@ -98,7 +98,7 @@ function AliceApp() {
 
           <h3 className="blog-subheading">Group Members</h3>
           <p>
-            Wonderland is designed and developed by <a href="https://www.linkedin.com/in/jilliangz/" target="_blank" rel="noopener noreferrer">Jillian Gonzales</a> and <a href="https://www.linkedin.com/in/congling-wang-22a475172/" target="_blank" rel="noopener noreferrer">Congling Wang</a>.
+            Wonderland is designed and developed by Jillian Gonzales and Congling Wang.
           </p>
 
           <h3 className="blog-subheading">Initial Design</h3>

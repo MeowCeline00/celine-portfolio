@@ -1,29 +1,48 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { ThemeContext } from "../../../Context/theme";
 import { Link, useNavigate } from "react-router-dom";
-import Alicehero from "../../../Assets/Projects/alice_mockup.png";
-import AliceGraphic1 from "../../../Assets/Projects/alice_quiz_1.png";
-import AliceGraphic2 from "../../../Assets/Projects/alice_quiz_2.png";
-import AliceGraphic3 from "../../../Assets/Projects/alice_quiz_3.png";
-import AliceGraphic4 from "../../../Assets/Projects/alice_quiz_4.png";
-import AliceGraphic5 from "../../../Assets/Projects/alice_quiz_5.png";
-import AliceGraphic6 from "../../../Assets/Projects/alice_quiz_6.png";
-import WonderlandVideo from "../../../Assets/Projects/Wonderland.mp4";
+import AetherVideo from "../../../Assets/Projects/aether_app_mockup.mp4";
+import AetherGraphic1 from "../../../Assets/Projects/Aether_research1.png";
+import AetherGraphic2 from "../../../Assets/Projects/Aether_research2.png";
+import AetherGraphic3 from "../../../Assets/Projects/Aether_research3.png";
+import Primarypersona from "../../../Assets/Projects/Group 98.png";
+import Secondarypersona from "../../../Assets/Projects/Group 99.png";
+import Aetherwireframe from "../../../Assets/Projects/Aether_customer_journey.jpg";
+import Aetherfeature1 from "../../../Assets/Projects/Aether_jargon.jpg";
+import Aetherfeature2 from "../../../Assets/Projects/Aether_autofill.jpg";
+import Aetherfeature3 from "../../../Assets/Projects/Aether_form_library.jpg";
+import Aetherexamplecode from "../../../Assets/Projects/Aether_myprofile_code.png";
+import Aetherform from "../../../Assets/Projects/aether_form_layout.png";
+import Aetherbrochure1 from "../../../Assets/Projects/Aether_brochure1.png";
+import Aetherbrochure2 from "../../../Assets/Projects/Aether_brochure2.png";
+import Aethertote from "../../../Assets/Projects/Aether_tote.png";
+import Aethersticker from "../../../Assets/Projects/Aether_sticker.png";
+
 import "./blog.css";
 
-function AliceApp() {
+function AetherApp() {
   const [{ themename }] = useContext(ThemeContext);
   const [showSlideshow, setShowSlideshow] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
-  
+  const videoRef = useRef(null);
+
   const graphicImages = [
-    AliceGraphic1, 
-    AliceGraphic2, 
-    AliceGraphic3, 
-    AliceGraphic4, 
-    AliceGraphic5, 
-    AliceGraphic6
+    AetherGraphic1, 
+    AetherGraphic2, 
+    AetherGraphic3, 
+    Primarypersona, 
+    Secondarypersona, 
+    Aetherwireframe,
+    Aetherfeature1,
+    Aetherfeature2,
+    Aetherfeature3,
+    Aetherexamplecode,
+    Aetherform,
+    Aetherbrochure1,
+    Aetherbrochure2,
+    Aethertote,
+    Aethersticker
   ];
   
   const openSlideshow = (index) => {
@@ -53,210 +72,327 @@ function AliceApp() {
     window.scrollTo(0, 0);
   };
 
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  };
+
   return (
-    <div className={`blog-page alice-app ${themename}`}>
+    <div className={`blog-page aether-app ${themename}`}>
       <div className="blog-container">
         <div className="blog-header">
           <div className="blog-text">
             <h1 className="blog-title">
-              WONDERLAND
+              Aether
             </h1>
             <p className="blog-category">
-              UI/UX DESIGNER | FRONT END DEVELOPER
+              A CASE STUDY | FULL-STACK DEVELOPER | UI / UX DESIGNER | MARKETER
             </p>
-            <div className="app-button-container">
-              <a
-                href="https://wonderland-alice.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="visit-website-button"
-              >
-                Journey to our App
-              </a>
-            </div>
-          </div>
-          <div className="blog-image-container">
-            <img
-              src={Alicehero}
-              alt="Alice App homepage mockup"
-              className="blog-image"
-            />
+            <p className="blog-date">Sep. 2024 - Dec 2024</p>
           </div>
         </div>
-
-        <p className="blog-date">JAN. 2024 - APRIL 2024</p>
+        
+        <div className="aether-hero-container">
+          <video
+            ref={videoRef}
+            src={AetherVideo}
+            alt="Aether Hero Video"
+            className="aether-hero-video"
+            onClick={togglePlayPause}
+            controls={false}
+            playsInline
+            muted
+            autoPlay
+            loop
+          />
+        </div>
 
         <div className="blog-content">
           <h3 className="blog-subheading">PROJECT OVERVIEW</h3>
           <p>
-            Wonderland is an innovative app crafted to explore users' mental
-            well-being interactively. Inspired by "Alice in Wonderland," it
-            evaluates burnout levels through a playful quiz. By incorporating
-            elements from the classic story, we guide users on a self-reflective
-            journey into their mental health.
+            Aether is an innovative AI-driven app designed to simplify the process of managing important documents, specifically for caretakers assisting elderly individuals. It streamlines document comprehension and completion with features like summarizing, autofilling, scanning, and multi-profile management. By reducing administrative burdens, Aether saves valuable time and allows caretakers to focus on providing quality care.
           </p>
 
           <h3 className="blog-subheading">Group Members</h3>
           <p>
-            Wonderland is designed and developed by <a href="https://www.linkedin.com/in/jilliangz/" target="_blank" rel="noopener noreferrer">Jillian Gonzales</a> and <a href="https://www.linkedin.com/in/congling-wang-22a475172/" target="_blank" rel="noopener noreferrer">Congling Wang</a>.
+            Aether is designed and developed by Kiana Amini, Zalida Khan, Boi San Ly, Jennica Sask, Jonathan Santiaguel, Madi Tabon, Trevor Tan, Parnell Tse, Congling Wang from BCIT D3 program.
           </p>
 
-          <h3 className="blog-subheading">Initial Design</h3>
+          <h3 className="blog-subheading">Problem & Solution</h3>
           <p>
-            Our initial design was created using Figma, with hand-drawn
-            graphics using Procreate and Adobe Illustrator.
+            Managing paperwork is a major challenge for elderly individuals and the caregivers who assist them. Many seniors struggle with complex forms due to unclear language, small print, and digital barriers, while caregivers face the burden of repeatedly filling out documents, organizing client information, and navigating confusing legal or medical terminology. Recognizing these challenges, we conducted extensive research to develop Aether—an AI-driven solution designed to simplify paperwork, automate repetitive tasks, and clarify jargon. By streamlining these processes, Aether reduces stress and saves time, allowing caregivers to focus on providing quality care.
           </p>
-          <div className="embed-container">
-            <iframe
-              className="embed-iframe"
-              src="https://embed.figma.com/proto/DHJkaoADJzWfAHR4yW4XX8/MDIA-2106-%E2%80%93-Wonderland-Set-H?node-id=1187-2257&p=f&scaling=scale-down&content-scaling=fixed&page-id=1187%3A1437&embed-host=share"
-              allowFullScreen
-              title="Initial Wonderland Mockup"
-            ></iframe>
-          </div>
 
-          <h3 className="blog-subheading">Usability Test Report</h3>
+          <h3 className="blog-subheading">Research & Insight</h3>
           <p>
-            We conducted a usability study to assess user navigation,
-            satisfaction, and overall effectiveness in stress relief.
+            Initially, our target audience was seniors who needed assistance with filling out forms. To better understand their needs, we conducted a Google Form survey targeting individuals aged 45 and older, gathering their opinions on using a mobile app for form assistance. However, our research showed that many seniors typically ask their family members or caregivers to help them complete their forms.
           </p>
-          <div className="embed-container">
-            <iframe
-              className="embed-iframe"
-              src="https://www.canva.com/design/DAGD1CLyzPU/webzOLGqqJ1lHQ-QUV8-DQ/view?embed"
-              allowFullScreen
-              title="Wonderland Usability Report"
-            ></iframe>
-            <p className="embed-caption">
-              <a
-                href="https://www.canva.com/design/DAGD1CLyzPU/webzOLGqqJ1lHQ-QUV8-DQ/view"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Full Report
-              </a>
-            </p>
+          <div className="aether-blog-image-container">
+            <img
+              src={AetherGraphic1}
+              alt="Aether research image 1"
+              className="blog-image-research"
+              onClick={() => openSlideshow(0)}
+            />
           </div>
-
-          <h3 className="blog-subheading">Changes After Usability Test</h3>
           <p>
-            Feedback revealed users struggled with too much descriptive text and
-            unclear navigation. We improved accessibility by simplifying content
-            and enhancing the quiz interface.
+            From our findings, we realized that it's often family caregivers who assist seniors with filling out forms. To gain deeper insights, we conducted another round of research, this time focusing on caregivers' perspectives on using a form-filling app like Aether. Our research revealed that caregivers frequently help their elderly parents complete forms and face challenges such as understanding complex jargon, gathering all necessary information, and ensuring accuracy.
           </p>
-
-          <h3 className="blog-subheading">Final Design</h3>
-          <div className="embed-container">
-            <iframe
-              className="embed-iframe"
-              src="https://embed.figma.com/proto/DHJkaoADJzWfAHR4yW4XX8/MDIA-2106-%E2%80%93-Wonderland-Set-H?node-id=1468-2398&p=f&scaling=scale-down&content-scaling=fixed&page-id=7%3A24&starting-point-node-id=1468%3A2398&embed-host=share"
-              allowFullScreen
-              title="Final Wonderland Mockup"
-            ></iframe>
+          <div className="aether-blog-image-container">
+            <img
+              src={AetherGraphic2}
+              alt="Aether research image 2"
+              className="blog-image-research"
+              onClick={() => openSlideshow(1)}
+            />
           </div>
-
-          <h3 className="blog-subheading">Development Process</h3>
+          <div className="aether-blog-image-container">
+            <img
+              src={AetherGraphic3}
+              alt="Aether research image 3"
+              className="blog-image-research"
+              onClick={() => openSlideshow(2)}
+            />
+          </div>
+          
+          <h3 className="blog-subheading">User Persona</h3>
           <p>
-            Built with Next.js, Wonderland integrates OpenAI for chatbot
-            features. The app includes AI-generated calming music and a
-            quiz-based navigation system.
+            Based on our research, we developed two user personas to better understand the needs of caregivers and create a more user-centered form-filling experience with Aether. These personas help us tailor features like jargon simplification, autofilling, and multi-profile management to address real-life challenges caregivers face when assisting their elderly loved ones. By focusing on their specific pain points, we aim to make Aether a seamless and intuitive tool that truly supports their needs.
           </p>
-          <div className="link-box">
-            <a
-              href="https://github.com/jellygz/wonderland"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="external-link"
-            >
-              View the GitHub Repository
-            </a>
-          </div>
 
-          <h3 className="blog-subheading">Demo of Our App</h3>
-          <div className="video-wrapper">
-            <div className="video-container">
-              <video controls className="project-video">
-                <source src={WonderlandVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+          <div className="aether-blog-persona">
+            <div className="persona-images">
+              <img
+                src={Primarypersona}
+                alt="Aether research Primary Persona"
+                className="aether-persona-img"
+                onClick={() => openSlideshow(3)}
+              />
+              <img
+                src={Secondarypersona}
+                alt="Aether research Secondary Persona"
+                className="aether-persona-img"
+                onClick={() => openSlideshow(4)}
+              />
             </div>
           </div>
 
-          <h3 className="blog-subheading">Style Guide</h3>
+          <h3 className="blog-subheading">Design Process</h3>
+          <h5 className="aether-blog-subheading">Wireframe and user flows</h5>
           <p>
-            We also coded a comprehensive style guide using HTML and CSS to maintain design consistency across the app.
+            Below is the flowchart we designed for our form-filling app. It illustrates the steps a caregiver will experience when using our app.
           </p>
-          <div className="link-box">
-            <a
-              href="https://styleguide-wonder.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="external-link"
-            >
-              View Style Guide Website
-            </a>
+          <div className="aether-blog-image-container">
+            <img
+              src={Aetherwireframe}
+              alt="Aether wireframe"
+              className="blog-image-wireframe"
+              onClick={() => openSlideshow(5)}
+            />
           </div>
 
-          <h3 className="blog-subheading">Images Created</h3>
-          <div className="wonderland-graphics-row">
-            {graphicImages.map((image, index) => (
-              <div 
-                key={index} 
-                className="wonderland-graphic-item" 
-                onClick={() => openSlideshow(index)}
-              >
-                <img
-                  src={image}
-                  alt={`Wonderland UI design ${index + 1}`}
-                  className="wonderland-graphic-image"
-                />
+          <h5 className="aether-blog-subheading">Lo-Fi</h5>
+          <p>
+            Based on the initial user flowchart, we created a draft version of our app. This early version is in black and white, showcasing only the basic functions and elements that will appear in the final app.
+          </p>
+          <div className="embed-container">
+            <iframe 
+              style={{border: "1px solid rgba(0, 0, 0, 0.1)"}} 
+              width="800" 
+              height="450" 
+              src="https://embed.figma.com/proto/lUdRzPjTarIpFT9U56ZdKW/Aether-Prototype-(Copy)?node-id=136-35&scaling=scale-down&content-scaling=fixed&page-id=49%3A10&starting-point-node-id=136%3A79&embed-host=share" 
+              allowFullScreen
+            ></iframe>
+          </div>
+
+          <h5 className="aether-blog-subheading">Style guide</h5>
+          <p>
+            In the next stage, we developed a style guide to establish the foundational elements of our app, including fonts, color palette, font sizes, logo, and mission. Below are the presentation slides showcasing our design and vision.
+          </p>
+          <div className="embed-container">
+            <iframe 
+              style={{border: "1px solid rgba(0, 0, 0, 0.1)"}} 
+              width="800" 
+              height="450" 
+              src="https://embed.figma.com/proto/7uFLSzWU4gw74WYdgnm9cW/Aether-Mobile-App?content-scaling=fixed&kind=proto&node-id=366-368&page-id=366%3A367&scaling=scale-down&starting-point-node-id=366%3A368&embed-host=share" 
+              allowFullScreen
+            ></iframe>
+          </div>
+
+          <h3 className="blog-subheading">Final Design | Hi-fi</h3>
+          <p>
+            Finally, after three months of refining our Figma mockups and developing our app based on the design, we built the app using the Expo system for iPhone, bringing our vision to life through coding.
+          </p>
+          <div className="embed-container">
+            <iframe 
+              style={{border: "1px solid rgba(0, 0, 0, 0.1)"}} 
+              width="800" 
+              height="450" 
+              src="https://embed.figma.com/proto/nzhtkPCGzn1CFTVlAsZSFQ/Aether-Mobile-App?content-scaling=fixed&kind=proto&node-id=2750-7065&page-id=2750%3A6683&scaling=scale-down&starting-point-node-id=2750%3A7345&embed-host=share" 
+              allowFullScreen
+            ></iframe>
+          </div>
+
+          <h3 className="blog-subheading">KEY FEATURES</h3>
+          <div className="aether-features-container">
+            <div className="aether-feature">
+              <div className="aether-feature-content">
+                <h4 className="aether-feature-title">AI-Powered Document Analyzer</h4>
+                <p>
+                  Quickly scans and interprets documents, providing insights and suggestions to ease the burden of comprehension.
+                </p>
               </div>
-            ))}
-          </div>
-          
-          <p className="graphics-description">
-            Our graphics have been hand-drawn to maintain consistency and thoughtfulness in our visual and stylistic language across the app. Outlined in black with accents of our primary blue colour, each element is carefully crafted to again ensure a pleasant user journey. This approach not only enhances user experience but also aligns with our overarching goal of immersing users as if they are the main character of a fairytale book. Every detail is curated to evoke a sense of wonder and magic, inviting users to embark on an adventure to learn more about themselves within our app.
-          </p>
-
-          <div className="blog-navigation">
-            <a 
-              href="/projects/blogs/Menu-design" 
-              className="nav-link prev"
-              onClick={(e) => handleNavigation(e, "/projects/blogs/Menu-design")}
-            >
-              <span className="nav-arrow nav-prev-arrow">←</span>
-              <span className="nav-text">Previous: SunnySide Menu Design</span>
-            </a>
-
-            <a 
-              href="/projects/blogs/Case-Study" 
-              className="nav-link next"
-              onClick={(e) => handleNavigation(e, "/projects/blogs/Case-Study")}
-            >
-              <span className="nav-text">
-                Next: Aether Case Study - Form Filling App
-              </span>
-              <span className="nav-arrow nav-next-arrow">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      {showSlideshow && (
-        <div className="slideshow-modal" onClick={closeSlideshow}>
-          <div className="slideshow-container" onClick={(e) => e.stopPropagation()}>
-            <button className="close-button" onClick={closeSlideshow}>×</button>
-            
-            <div className="slide">
-              <img 
-                src={graphicImages[currentSlide]} 
-                alt={`Wonderland UI slide ${currentSlide + 1}`} 
-                className="slide-image" 
+              <img
+                src={Aetherfeature1}
+                alt="Aether feature1"
+                className="aether-feature-image"
+                onClick={() => openSlideshow(6)}
               />
             </div>
             
-            <p className="slide-caption">Slide {currentSlide + 1} of {graphicImages.length}</p>
+            <div className="aether-feature">
+              <div className="aether-feature-content">
+                <h4 className="aether-feature-title">Automatic Form Filling</h4>
+                <p>
+                  Streamlines paperwork by intelligently auto filling forms with the necessary information.
+                </p>
+              </div>
+              <img
+                src={Aetherfeature2}
+                alt="Aether feature2"
+                className="aether-feature-image"
+                onClick={() => openSlideshow(7)}
+              />
+            </div>
             
+            <div className="aether-feature">
+              <div className="aether-feature-content">
+                <h4 className="aether-feature-title">A Database of Form Library</h4>
+                <p>
+                  The Form Library provides a comprehensive collection of forms commonly required by senior citizens. Caregivers can easily search for and access the specific forms they need.
+                </p>
+              </div>
+              <img
+                src={Aetherfeature3}
+                alt="Aether feature3"
+                className="aether-feature-image"
+                onClick={() => openSlideshow(8)}
+              />
+            </div>
+          </div>
+
+          <h3 className="blog-subheading">EXAMPLE OF CODE</h3>
+          <p>
+            This part of the code shows the adding forms feature.
+          </p>
+          <div className="aether-code-container">
+            <div className="aether-code-image">
+              <img
+                src={Aetherexamplecode}
+                alt="Aether example code"
+                className="aether-example-code-image"
+                onClick={() => openSlideshow(9)}
+              />
+              <a 
+                href="https://github.com/1medi/aether/blob/lab1/app/(tabs)/FormLibrary/FormLibrary.component.js"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="github-link"
+              >
+                View on GitHub
+              </a>
+            </div>
+            <div className="aether-form-mockup">
+              <img
+                src={Aetherform}
+                alt="Aether form"
+                className="aether-form-image"
+                onClick={() => openSlideshow(10)}
+              />
+            </div>
+          </div>
+
+          <h3 className="blog-subheading">Overview of the MyFilesScreen Component</h3>
+          <p>
+            The MyFilesScreen component is a React Native screen that lets users toggle between "Forms" and "Profiles" tabs, search within each tab, and view filtered results. It features dynamic UI elements like a searchable header, toggle buttons, suggestion banners, and reusable components (MyFormsCard and SavedProfileCard). The design adapts to light and dark themes using a useDarkMode context. State management (useState) and performance optimization (useMemo) ensure smooth interaction. The screen is styled dynamically and displays forms or profiles with branding and user-friendly navigation.
+          </p>
+
+          <h3 className="blog-subheading">Final Product</h3>
+          <p>
+            The code was developed using React and runs as an iPhone app on Expo Go. The full version of the code is available here: <a href="https://github.com/1medi/aether" target="_blank" rel="noopener noreferrer">GitHub Repository</a>.
+          </p>
+
+          <h3 className="blog-subheading">Blog website</h3>
+          <p>
+            We also developed a blog website to introduce our product and document our development journey. Built using HTML, CSS, JavaScript, and MongoDB, the website provides insights into our team and project. You can access the code here: <a href="https://github.com/1medi/aether_blog" target="_blank" rel="noopener noreferrer">GitHub Repository</a>, and visit the final blog website here: <a href="https://aether-blog.vercel.app/" target="_blank" rel="noopener noreferrer">Aether Blog</a>.
+          </p>
+
+          <h3 className="blog-subheading">Marketing</h3>
+          <p>
+            To better promote our app, we also designed brochures and branded merchandise to distribute as giveaways.
+          </p>
+          
+          <div className="aether-marketing-section">
+            <h5 className="aether-marketing-title">Brochure</h5>
+            <div className="aether-marketing-items">
+              <img
+                src={Aetherbrochure1}
+                alt="Aether brochure 1"
+                className="aether-marketing-image"
+                onClick={() => openSlideshow(11)}
+              />
+              <img
+                src={Aetherbrochure2}
+                alt="Aether brochure 2"
+                className="aether-marketing-image"
+                onClick={() => openSlideshow(12)}
+              />
+            </div>
+
+            <h5 className="aether-marketing-title">Tote Bag</h5>
+            <div className="aether-marketing-items">
+              <img
+                src={Aethertote}
+                alt="Aether tote bag"
+                className="aether-marketing-image"
+                onClick={() => openSlideshow(13)}
+              />
+            </div>
+
+            <h5 className="aether-marketing-title">Sticker</h5>
+            <div className="aether-marketing-items">
+              <img
+                src={Aethersticker}
+                alt="Aether sticker"
+                className="aether-marketing-image"
+                onClick={() => openSlideshow(14)}
+              />
+            </div>
+          </div>
+
+          <h3 className="blog-subheading">Key Takeaways</h3>
+          <p>
+            Early testing of the Aether App showed a reduction in form-filling time by up to 50%, with caregivers reporting decreased stress and increased efficiency in managing administrative tasks. Its intuitive design and user-friendly interface contributed to widespread adoption.
+          </p>
+        </div>
+      </div>
+
+      {showSlideshow && (
+        <div className="slideshow-modal" onClick={closeSlideshow}>
+          <div className="slideshow-container" onClick={e => e.stopPropagation()}>
+            <button className="close-button" onClick={closeSlideshow}>×</button>
+            <div className="slide">
+              <img src={graphicImages[currentSlide]} alt={`Slide ${currentSlide + 1}`} className="slide-image" />
+            </div>
+            <div className="slide-navigation">
+              <button className="nav-button prev-button" onClick={prevSlide}>←</button>
+              <button className="nav-button next-button" onClick={nextSlide}>→</button>
+            </div>
             <div className="slide-indicators">
               {graphicImages.map((_, index) => (
                 <div 
@@ -266,12 +402,9 @@ function AliceApp() {
                     e.stopPropagation();
                     setCurrentSlide(index);
                   }}
-                ></div>
+                />
               ))}
             </div>
-            
-            <button className="nav-button prev-button" onClick={prevSlide}>←</button>
-            <button className="nav-button next-button" onClick={nextSlide}>→</button>
           </div>
         </div>
       )}
@@ -279,4 +412,4 @@ function AliceApp() {
   );
 }
 
-export default AliceApp;
+export default AetherApp;
