@@ -24,6 +24,7 @@ function AetherApp() {
   const [{ themename }] = useContext(ThemeContext);
   const [showSlideshow, setShowSlideshow] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [activePersona, setActivePersona] = useState("primary"); 
   const navigate = useNavigate();
   const videoRef = useRef(null);
 
@@ -45,6 +46,17 @@ function AetherApp() {
     Aethersticker
   ];
   
+  const blogNavigation = {
+    prev: {
+      path: "/projects/blogs/Alice-App", 
+      title: "Alice Wonderland - Stress Relief App"
+    },
+    next: {
+      path: "/projects/blogs/Can-design", 
+      title: "Can Design"
+    }
+  };
+
   const openSlideshow = (index) => {
     setCurrentSlide(index);
     setShowSlideshow(true);
@@ -165,20 +177,39 @@ function AetherApp() {
             Based on our research, we developed two user personas to better understand the needs of caregivers and create a more user-centered form-filling experience with Aether. These personas help us tailor features like jargon simplification, autofilling, and multi-profile management to address real-life challenges caregivers face when assisting their elderly loved ones. By focusing on their specific pain points, we aim to make Aether a seamless and intuitive tool that truly supports their needs.
           </p>
 
+          <div className="persona-button-container">
+            <button 
+              className={`persona-btn ${activePersona === 'primary' ? 'active' : ''}`}
+              onClick={() => setActivePersona('primary')}
+            >
+              Primary Persona
+            </button>
+            <button 
+              className={`persona-btn ${activePersona === 'secondary' ? 'active' : ''}`}
+              onClick={() => setActivePersona('secondary')}
+            >
+              Secondary Persona
+            </button>
+          </div>
+
           <div className="aether-blog-persona">
-            <div className="persona-images">
-              <img
-                src={Primarypersona}
-                alt="Aether research Primary Persona"
-                className="aether-persona-img"
-                onClick={() => openSlideshow(3)}
-              />
-              <img
-                src={Secondarypersona}
-                alt="Aether research Secondary Persona"
-                className="aether-persona-img"
-                onClick={() => openSlideshow(4)}
-              />
+            <div className="persona-display">
+              {activePersona === 'primary' && (
+                <img
+                  src={Primarypersona}
+                  alt="Aether research Primary Persona"
+                  className="aether-persona-img"
+                  onClick={() => openSlideshow(3)}
+                />
+              )}
+              {activePersona === 'secondary' && (
+                <img
+                  src={Secondarypersona}
+                  alt="Aether research Secondary Persona"
+                  className="aether-persona-img"
+                  onClick={() => openSlideshow(4)}
+                />
+              )}
             </div>
           </div>
 
@@ -379,6 +410,30 @@ function AetherApp() {
           <p>
             Early testing of the Aether App showed a reduction in form-filling time by up to 50%, with caregivers reporting decreased stress and increased efficiency in managing administrative tasks. Its intuitive design and user-friendly interface contributed to widespread adoption.
           </p>
+
+          <div className="blog-navigation">
+            {blogNavigation.prev && (
+              <a 
+                href={blogNavigation.prev.path} 
+                className="nav-link prev"
+                onClick={(e) => handleNavigation(e, blogNavigation.prev.path)}
+              >
+                <span className="nav-arrow nav-prev-arrow">←</span>
+                <span className="nav-text">Previous: {blogNavigation.prev.title}</span>
+              </a>
+            )}
+            
+            {blogNavigation.next && (
+              <a 
+                href={blogNavigation.next.path} 
+                className="nav-link next"
+                onClick={(e) => handleNavigation(e, blogNavigation.next.path)}
+              >
+                <span className="nav-text">Next: {blogNavigation.next.title}</span>
+                <span className="nav-arrow nav-next-arrow">→</span>
+              </a>
+            )}
+          </div>
         </div>
       </div>
 

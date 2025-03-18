@@ -1203,3 +1203,56 @@
     font-size: 1.2rem;
   }
 }
+
+.persona-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.persona-btn {
+  background-color: #ffffff;
+  color: #044BD9;
+  border: 2px solid #044BD9;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 180px;
+}
+
+.persona-btn:hover {
+  background-color: #e6f0ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.persona-btn.active {
+  background-color: #044BD9;
+  color: white;
+}
+
+.aether-app.dark .persona-btn {
+  background-color: #333333;
+  color: #6FADFE;
+  border-color: #6FADFE;
+}
+
+.aether-app.dark .persona-btn:hover {
+  background-color: #444444;
+}
+
+.aether-app.dark .persona-btn.active {
+  background-color: #6FADFE;
+  color: #121212;
+}
+
+.persona-display {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
