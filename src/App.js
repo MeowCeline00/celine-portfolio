@@ -4,7 +4,6 @@ import Preloader from "./components/preloader/Preloader";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/Home/Home";
 import Projects from "./components/Projects/Projects";
-import Contact from "./components/Contact/Contact"
 import Footer from "./components/footer/Footer";
 import { ThemeContext } from "./Context/theme";
 import {
@@ -15,7 +14,6 @@ import {
 } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
-
 import CaseStudy from "./components/Projects/Blogs/Case-Study";
 import CanDesign from "./components/Projects/Blogs/Can-design";
 import AliceWonderland from "./components/Projects/Blogs/Alice-App";
@@ -25,12 +23,12 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [load, updateLoad] = useState(true); 
+  const [load, updateLoad] = useState(true);
   const [{ themename }] = useContext(ThemeContext);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      updateLoad(false); 
+      updateLoad(false);
     }, 1200);
 
     return () => clearTimeout(timer);

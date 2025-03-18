@@ -6,10 +6,12 @@ import Container from "react-bootstrap/Container";
 import Portfoliologo from "../../Assets/porfolio logo Celine_colored.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./navbar.css";
+import ContactPopup from "../Contact/ContactPopup";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
+  const [showContactPopup, setShowContactPopup] = useState(false);
   const [{ themename, toggeltheme }] = useContext(ThemeContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -60,72 +62,75 @@ function NavBar() {
   }
 
   return (
-    <Navbar 
-      expanded={expand} 
-      fixed="top" 
-      expand="md" 
-      className={`${navColour ? "sticky" : "navbar"} ${themename}`}
-    >
-      <Container>
-        <Navbar.Brand href="/" className="d-flex">
-          <img
-            src={Portfoliologo}
-            className="img-fluid logo"
-            alt="brand"
-            style={{ width: "100px" }}
-          />
-        </Navbar.Brand>
-
-        <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
-          onClick={() => updateExpanded(expand ? false : "expanded")}
-        >
-          <div className="toggleButton">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </Navbar.Toggle>
-
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
-            <Nav.Item>
-              <Nav.Link onClick={handleScrollToHome}>
-                Home
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link onClick={handleScrollToAbout}>
-                About
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link as={Link} to="/project" onClick={() => updateExpanded(false)}>
-                Projects
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link as={Link} to="/gallary" onClick={() => updateExpanded(false)}>
-                Gallary
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-          
-          <Nav.Item>
-            <div className="theme-switch">
-              <div id="toggle" onClick={toggeltheme}>
-                <div className="toggle-inner" />
-              </div>
+    <>
+      <Navbar 
+        expanded={expand} 
+        fixed="top" 
+        expand="md" 
+        className={`${navColour ? "sticky" : "navbar"} ${themename}`}
+      >
+        <Container>
+          <Navbar.Brand href="/" className="d-flex">
+            <img
+              src={Portfoliologo}
+              className="img-fluid logo"
+              alt="brand"
+              style={{ width: '70px' }}
+            />
+          </Navbar.Brand>
+          <Navbar.Toggle
+            aria-controls="responsive-navbar-nav"
+            onClick={() => updateExpanded(expand ? false : "expanded")}
+          >
+            <div className="toggleButton">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
-          </Nav.Item>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          </Navbar.Toggle>
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="ms-auto" defaultActiveKey="#home">
+              <Nav.Item>
+                <Nav.Link onClick={handleScrollToHome}>
+                  Home
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link onClick={handleScrollToAbout}>
+                  About
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link as={Link} to="/project" onClick={() => updateExpanded(false)}>
+                  Projects
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link onClick={() => setShowContactPopup(true)}>
+                  Contact
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <div className="theme-switch">
+                  <div id="toggle" onClick={toggeltheme}>
+                    <div className="toggle-inner" />
+                  </div>
+                </div>
+              </Nav.Item>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      {showContactPopup && (
+        <ContactPopup 
+          onClose={() => setShowContactPopup(false)} 
+          isOpen={showContactPopup}
+        />
+      )}
+    </>
   );
 }
 
