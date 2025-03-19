@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+  functions = "netlify/functions"
+
+# Redirect netlify domain to primary domain - customize this as needed
+[[redirects]]
+  from = "https://your-netlify-site.netlify.app/*"
+  to = "https://your-custom-domain.com/:splat"
+  status = 301
+  force = true
+
+# Redirect for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Use HSTS to force HTTPS
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"

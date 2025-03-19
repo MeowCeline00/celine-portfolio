@@ -9,7 +9,10 @@
     "@testing-library/user-event": "^14.4.3",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
+    "dotenv": "^16.4.7",
     "gsap": "^3.12.7",
+    "netlify-cli": "^19.0.2",
+    "nodemailer": "^6.10.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
@@ -26,7 +29,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev:netlify": "netlify dev"
   },
   "eslintConfig": {
     "extends": [
