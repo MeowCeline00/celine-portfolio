@@ -12,7 +12,6 @@
   vertical-align: middle !important;
   text-align: center !important;
   background: white !important;
-  box-shadow: var(--shadow) !important;
   border-radius: 20px !important;
   display: table !important;
   overflow: hidden !important;
@@ -31,13 +30,11 @@
   background: transparent !important;
   border: none !important;
   color: var(--clr-txt) !important;
-  box-shadow: var(--shadow);
 }
 
 .gitContainer {
   padding: 15px;
   background: transparent !important;
-  box-shadow: var(--shadow);
   font-size: 30px !important;
   color: var(--clr-txt);
   border-radius: 5px;

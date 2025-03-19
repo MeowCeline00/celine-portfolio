@@ -11,7 +11,6 @@ function ContactPopup({ onClose, isOpen }) {
     message: ''
   });
 
-  // Add event listener to close popup when clicking outside
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape') {
@@ -47,10 +46,8 @@ function ContactPopup({ onClose, isOpen }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
     console.log('Form submitted:', formData);
-    // You might want to add API call or email sending logic
-    onClose(); // Close popup after submission
+    onClose(); 
   };
 
   if (!isOpen) return null;
@@ -58,13 +55,14 @@ function ContactPopup({ onClose, isOpen }) {
   return (
     <div className="popup-overlay">
       <div className="popup-content">
+        {/* Close button moved outside the popup-right div for better mobile positioning */}
+        <button className="close-btn" onClick={onClose}>
+          &times;
+        </button>
         <div className="popup-left">
           <img src={contactImage} alt="Contact" className="contact-illustration" />
         </div>
         <div className="popup-right">
-          <button className="close-btn" onClick={onClose}>
-            &times;
-          </button>
           <form onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group">

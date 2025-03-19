@@ -94,7 +94,6 @@
   padding: 0.6rem 0.8rem !important;
 }
 
-/* Theme Switch */
 .theme-switch {
   padding-left: 10px;
   display: flex;
@@ -127,7 +126,6 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* Dark mode styling */
 .dark #toggle {
   background-color: #6FADFE;
 }
