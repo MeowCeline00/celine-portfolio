@@ -15,7 +15,7 @@ const ThemeProvider = ({ children }) => {
     }
     
     document.body.className = savedTheme || themename;
-  }, []);
+  }, [themename]); 
   
   const toggeltheme = () => {
     const newTheme = themename === "light" ? "dark" : "light";
