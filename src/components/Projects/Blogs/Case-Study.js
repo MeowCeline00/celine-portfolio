@@ -1,6 +1,6 @@
 import React, { useContext, useState, useRef } from "react";
 import { ThemeContext } from "../../../Context/theme";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AetherVideo from "../../../Assets/Projects/aether_app_mockup.mp4";
 import AetherGraphic1 from "../../../Assets/Projects/Aether_research1.png";
 import AetherGraphic2 from "../../../Assets/Projects/Aether_research2.png";

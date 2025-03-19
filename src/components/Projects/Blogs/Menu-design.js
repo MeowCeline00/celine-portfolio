@@ -1,6 +1,6 @@
 import React, { useContext, useState, useCallback } from "react";
 import { ThemeContext } from "../../../Context/theme"; 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Menuhero from "../../../Assets/Projects/menu_mockup1.jpg";
 import Menu_before from "../../../Assets/Projects/menu-4.jpg";
 import Menu_after from "../../../Assets/Projects/menu-1.jpg";

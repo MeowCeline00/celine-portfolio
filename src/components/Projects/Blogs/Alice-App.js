@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../../Context/theme";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Alicehero from "../../../Assets/Projects/alice_mockup.png";
 import AliceGraphic1 from "../../../Assets/Projects/alice_quiz_1.png";
 import AliceGraphic2 from "../../../Assets/Projects/alice_quiz_2.png";

@@ -1,6 +1,6 @@
 import React, { useContext, useState, useCallback } from "react";
 import { ThemeContext } from "../../../Context/theme"; 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PSicon from "../../../Assets/Projects/ps.png";
 import Illustratoricon from "../../../Assets/Projects/illustrator.png";
 import CanHero from "../../../Assets/Projects/can_design.jpg";
