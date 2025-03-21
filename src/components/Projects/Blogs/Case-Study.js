@@ -279,7 +279,7 @@ function AetherApp() {
               <div className="aether-feature-image-container">
                 <img
                   src={Aetherfeature1}
-                  alt="Aether feature1"
+                  alt="Aether feature: AI-Powered Document Analyzer"
                   className="aether-feature-image"
                   onClick={() => openSlideshow(6)}
                 />
@@ -296,7 +296,7 @@ function AetherApp() {
               <div className="aether-feature-image-container">
                 <img
                   src={Aetherfeature2}
-                  alt="Aether feature2"
+                  alt="Aether feature: Automatic Form Filling"
                   className="aether-feature-image"
                   onClick={() => openSlideshow(7)}
                 />
@@ -305,7 +305,7 @@ function AetherApp() {
             
             <div className="aether-feature">
               <div className="aether-feature-content">
-                <h4 className="aether-feature-title">A Database of Form Library</h4>
+                <h4 className="aether-feature-title">Form Library Database</h4>
                 <p>
                   The Form Library provides a comprehensive collection of forms commonly required by senior citizens. Caregivers can easily search for and access the specific forms they need.
                 </p>
@@ -313,7 +313,7 @@ function AetherApp() {
               <div className="aether-feature-image-container">
                 <img
                   src={Aetherfeature3}
-                  alt="Aether feature3"
+                  alt="Aether feature: Form Library Database"
                   className="aether-feature-image"
                   onClick={() => openSlideshow(8)}
                 />
