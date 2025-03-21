@@ -99,9 +99,7 @@ function AetherApp() {
       <div className="blog-container">
         <div className="blog-header">
           <div className="blog-text">
-            <h1 className="blog-title">
-              Aether
-            </h1>
+            <h1 className="blog-title">Aether</h1>
             <p className="blog-category">
               A CASE STUDY | FULL-STACK DEVELOPER | UI / UX DESIGNER | MARKETER
             </p>
@@ -234,7 +232,7 @@ function AetherApp() {
           <div className="embed-container">
             <iframe 
               style={{border: "1px solid rgba(0, 0, 0, 0.1)"}} 
-              width="800" 
+              width="100%" 
               height="450" 
               src="https://embed.figma.com/proto/lUdRzPjTarIpFT9U56ZdKW/Aether-Prototype-(Copy)?node-id=136-35&scaling=scale-down&content-scaling=fixed&page-id=49%3A10&starting-point-node-id=136%3A79&embed-host=share" 
               allowFullScreen
@@ -248,7 +246,7 @@ function AetherApp() {
           <div className="embed-container">
             <iframe 
               style={{border: "1px solid rgba(0, 0, 0, 0.1)"}} 
-              width="800" 
+              width="100%" 
               height="450" 
               src="https://embed.figma.com/proto/7uFLSzWU4gw74WYdgnm9cW/Aether-Mobile-App?content-scaling=fixed&kind=proto&node-id=366-368&page-id=366%3A367&scaling=scale-down&starting-point-node-id=366%3A368&embed-host=share" 
               allowFullScreen
@@ -262,7 +260,7 @@ function AetherApp() {
           <div className="embed-container">
             <iframe 
               style={{border: "1px solid rgba(0, 0, 0, 0.1)"}} 
-              width="800" 
+              width="100%" 
               height="450" 
               src="https://embed.figma.com/proto/nzhtkPCGzn1CFTVlAsZSFQ/Aether-Mobile-App?content-scaling=fixed&kind=proto&node-id=2750-7065&page-id=2750%3A6683&scaling=scale-down&starting-point-node-id=2750%3A7345&embed-host=share" 
               allowFullScreen
@@ -278,12 +276,14 @@ function AetherApp() {
                   Quickly scans and interprets documents, providing insights and suggestions to ease the burden of comprehension.
                 </p>
               </div>
-              <img
-                src={Aetherfeature1}
-                alt="Aether feature1"
-                className="aether-feature-image"
-                onClick={() => openSlideshow(6)}
-              />
+              <div className="aether-feature-image-container">
+                <img
+                  src={Aetherfeature1}
+                  alt="Aether feature1"
+                  className="aether-feature-image"
+                  onClick={() => openSlideshow(6)}
+                />
+              </div>
             </div>
             
             <div className="aether-feature">
@@ -293,12 +293,14 @@ function AetherApp() {
                   Streamlines paperwork by intelligently auto filling forms with the necessary information.
                 </p>
               </div>
-              <img
-                src={Aetherfeature2}
-                alt="Aether feature2"
-                className="aether-feature-image"
-                onClick={() => openSlideshow(7)}
-              />
+              <div className="aether-feature-image-container">
+                <img
+                  src={Aetherfeature2}
+                  alt="Aether feature2"
+                  className="aether-feature-image"
+                  onClick={() => openSlideshow(7)}
+                />
+              </div>
             </div>
             
             <div className="aether-feature">
@@ -308,12 +310,14 @@ function AetherApp() {
                   The Form Library provides a comprehensive collection of forms commonly required by senior citizens. Caregivers can easily search for and access the specific forms they need.
                 </p>
               </div>
-              <img
-                src={Aetherfeature3}
-                alt="Aether feature3"
-                className="aether-feature-image"
-                onClick={() => openSlideshow(8)}
-              />
+              <div className="aether-feature-image-container">
+                <img
+                  src={Aetherfeature3}
+                  alt="Aether feature3"
+                  className="aether-feature-image"
+                  onClick={() => openSlideshow(8)}
+                />
+              </div>
             </div>
           </div>
 
@@ -386,7 +390,7 @@ function AetherApp() {
             </div>
 
             <h5 className="aether-marketing-title">Tote Bag</h5>
-            <div className="aether-marketing-items">
+            <div className="aether-marketing-items single-item">
               <img
                 src={Aethertote}
                 alt="Aether tote bag"
@@ -396,7 +400,7 @@ function AetherApp() {
             </div>
 
             <h5 className="aether-marketing-title">Sticker</h5>
-            <div className="aether-marketing-items">
+            <div className="aether-marketing-items single-item">
               <img
                 src={Aethersticker}
                 alt="Aether sticker"
