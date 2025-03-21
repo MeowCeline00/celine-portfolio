@@ -3,12 +3,12 @@
   publish = "build"
   functions = "netlify/functions"
 
-# Redirect netlify domain to primary domain - customize this as needed
-[[redirects]]
-  from = "https://your-netlify-site.netlify.app/*"
-  to = "https://your-custom-domain.com/:splat"
-  status = 301
-  force = true
+# Temporary comment out the domain redirect until you have a custom domain
+# [[redirects]]
+#   from = "https://your-netlify-site.netlify.app/*"
+#   to = "https://your-custom-domain.com/:splat"
+#   status = 301
+#   force = true
 
 # Redirect for SPA routing
 [[redirects]]

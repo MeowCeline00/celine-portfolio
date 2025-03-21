@@ -31,7 +31,7 @@ exports.handler = async function(event, context) {
     return { 
       statusCode: 400, 
       headers,
-      body: JSON.stringify({ message: 'Invalid JSON' })
+      body: JSON.stringify({ message: 'Invalid JSON', error: error.message })
     };
   }
 
@@ -45,12 +45,19 @@ exports.handler = async function(event, context) {
     };
   }
 
+  // Log credentials being used (redacted for security)
+  console.log('Using EMAIL_USER:', process.env.EMAIL_USER?.substring(0, 3) + '...');
+  console.log('EMAIL_PASSWORD exists:', !!process.env.EMAIL_PASSWORD);
+
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASSWORD,
     },
+    debug: true
   });
 
   const mailOptions = {
@@ -94,7 +101,8 @@ exports.handler = async function(event, context) {
       headers,
       body: JSON.stringify({ 
         message: "Error sending email", 
-        error: error.message 
+        error: error.message,
+        stack: error.stack
       })
     };
   }
