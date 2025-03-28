@@ -58,6 +58,7 @@ function ContactPopup({ onClose, isOpen }) {
 
   const handleFinalSubmit = async () => {
     setIsSubmitting(true);
+    console.log('Submitting contact form...');
     
     try {
       const response = await fetch('/.netlify/functions/send-email', {
@@ -73,16 +74,20 @@ function ContactPopup({ onClose, isOpen }) {
         }),
       });
 
+      console.log('Response status:', response.status);
       const data = await response.json();
+      console.log('Response data:', data);
 
       if (response.ok) {
         setFormStatus('success');
       } else {
-        throw new Error(data.message || 'Failed to send email');
+        const errorMsg = data.error || data.message || 'Failed to send email';
+        console.error('Server error:', errorMsg);
+        throw new Error(errorMsg);
       }
     } catch (error) {
       console.error('Error sending email:', error);
-      setErrorMessage('There was a problem sending your message. Please try again later.');
+      setErrorMessage(error.message || 'There was a problem sending your message. Please try again later.');
       setFormStatus('error');
     } finally {
       setIsSubmitting(false);

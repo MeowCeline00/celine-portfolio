@@ -3,12 +3,11 @@
   publish = "build"
   functions = "netlify/functions"
 
-# Temporary comment out the domain redirect until you have a custom domain
-# [[redirects]]
-#   from = "https://your-netlify-site.netlify.app/*"
-#   to = "https://your-custom-domain.com/:splat"
-#   status = 301
-#   force = true
+# API requests should be directed to the functions
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
 
 # Redirect for SPA routing
 [[redirects]]
