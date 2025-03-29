@@ -226,3 +226,69 @@
     padding-bottom: 20px !important;
   }
 }
+
+/* Add these styles to your about.css file */
+
+.duck-clickable {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.duck-clickable:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.duck-clickable:active {
+  transform: scale(0.95);
+}
+
+.avatar-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.duck-click-hint {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--clr-primary);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.avatar-container:hover .duck-click-hint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* Pulsing animation to draw attention to the clickable duck */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(4, 75, 217, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(4, 75, 217, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(4, 75, 217, 0);
+  }
+}
+
+.duck-clickable {
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}

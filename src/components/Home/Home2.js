@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/wing-waving_duck.gif";
 import Techstack from "../About/Techstack";
 import Toolstack from "../About/Toolstack";
 import "../About/about.css";
+import DuckGame from "./DuckGame/DuckGame";
 
 import { AiFillGithub, AiFillInstagram, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
 function Home2() {
+  const [showDuckGame, setShowDuckGame] = useState(false);
+
+  const handleDuckClick = () => {
+    setShowDuckGame(true);
+  };
+
+  const handleCloseDuckGame = () => {
+    setShowDuckGame(false);
+  };
+
   return (
     <Container fluid className="home-about-section" id="about">
       <Container className="content-container">
@@ -41,9 +52,15 @@ function Home2() {
               <img
                 data-aos="fade-left"
                 src={myImg}
-                className="img-fluid avatar-img"
+                className="img-fluid avatar-img duck-clickable"
                 alt="avatar"
+                onClick={handleDuckClick}
+                style={{ cursor: 'pointer' }}
+                title="Click me to start duck adventure!"
               />
+              <div className="duck-click-hint d-none d-lg-block">
+                Click the duck for a surprise adventure!
+              </div>
             </div>
           </Col>
         </Row>
@@ -132,6 +149,9 @@ function Home2() {
           </Col>
         </Row>
       </Container>
+
+      {/* Duck Game Modal */}
+      <DuckGame show={showDuckGame} handleClose={handleCloseDuckGame} />
     </Container>
   );
 }

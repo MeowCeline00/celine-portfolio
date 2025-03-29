@@ -15,3 +15,7 @@ This project is built using these technologies.
 - VsCode
 - Vercel
 
+## How to Run on your local
+- npm install
+- netlify dev to run it on local host
+
