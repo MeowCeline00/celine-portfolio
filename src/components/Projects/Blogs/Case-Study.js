@@ -13,8 +13,10 @@ import Aetherfeature2 from "../../../Assets/Projects/Aether_autofill.jpg";
 import Aetherfeature3 from "../../../Assets/Projects/Aether_form_library.jpg";
 import Aetherexamplecode from "../../../Assets/Projects/Aether_myprofile_code.png";
 import Aetherform from "../../../Assets/Projects/aether_form_layout.png";
-import Aetherbrochure1 from "../../../Assets/Projects/Aether_brochure1.png";
-import Aetherbrochure2 from "../../../Assets/Projects/Aether_brochure2.png";
+import Aetherbrochure1 from "../../../Assets/Projects/aether_brochure_1.jpg";
+import Aetherbrochure2 from "../../../Assets/Projects/aether_brochure_2.jpg";
+import Aetherbusinesscard1 from "../../../Assets/Projects/aether_business_card_1.jpg";
+import Aetherbusinesscard2 from "../../../Assets/Projects/aether_business_card_2.jpg";
 import Aethertote from "../../../Assets/Projects/Aether_tote.png";
 import Aethersticker from "../../../Assets/Projects/Aether_sticker.png";
 
@@ -231,12 +233,14 @@ function AetherApp() {
           </p>
           <div className="embed-container">
             <iframe 
-              style={{border: "1px solid rgba(0, 0, 0, 0.1)"}} 
-              width="100%" 
-              height="450" 
-              src="https://embed.figma.com/proto/lUdRzPjTarIpFT9U56ZdKW/Aether-Prototype-(Copy)?node-id=136-35&scaling=scale-down&content-scaling=fixed&page-id=49%3A10&starting-point-node-id=136%3A79&embed-host=share" 
+              style={{
+                border: "1px solid rgba(0, 0, 0, 0.1)",
+                width: "800px",
+                height: "450px"
+              }}
+              src="https://embed.figma.com/design/7uFLSzWU4gw74WYdgnm9cW/Aether-Mobile-App?node-id=49-10&embed-host=share"
               allowFullScreen
-            ></iframe>
+            />
           </div>
 
           <h5 className="aether-blog-subheading">Style guide</h5>
@@ -245,12 +249,14 @@ function AetherApp() {
           </p>
           <div className="embed-container">
             <iframe 
-              style={{border: "1px solid rgba(0, 0, 0, 0.1)"}} 
-              width="100%" 
-              height="450" 
-              src="https://embed.figma.com/proto/7uFLSzWU4gw74WYdgnm9cW/Aether-Mobile-App?content-scaling=fixed&kind=proto&node-id=366-368&page-id=366%3A367&scaling=scale-down&starting-point-node-id=366%3A368&embed-host=share" 
+              style={{
+                border: "1px solid rgba(0, 0, 0, 0.1)",
+                width: "800px",
+                height: "450px"
+              }}
+              src="https://embed.figma.com/proto/7uFLSzWU4gw74WYdgnm9cW/Aether-Mobile-App?node-id=6191-626&p=f&scaling=scale-down&content-scaling=fixed&page-id=6191%3A599&starting-point-node-id=6191%3A626&embed-host=share"
               allowFullScreen
-            ></iframe>
+            />
           </div>
 
           <h3 className="blog-subheading">Final Design | Hi-fi</h3>
@@ -259,12 +265,14 @@ function AetherApp() {
           </p>
           <div className="embed-container">
             <iframe 
-              style={{border: "1px solid rgba(0, 0, 0, 0.1)"}} 
-              width="100%" 
-              height="450" 
-              src="https://embed.figma.com/proto/nzhtkPCGzn1CFTVlAsZSFQ/Aether-Mobile-App?content-scaling=fixed&kind=proto&node-id=2750-7065&page-id=2750%3A6683&scaling=scale-down&starting-point-node-id=2750%3A7345&embed-host=share" 
+              style={{
+                border: "1px solid rgba(0, 0, 0, 0.1)",
+                width: "100%",
+                height: "450px"
+              }}
+              src="https://embed.figma.com/proto/nzhtkPCGzn1CFTVlAsZSFQ/Aether-Mobile-App?node-id=2750-7065&p=f&scaling=scale-down&content-scaling=fixed&page-id=2750%3A6683&starting-point-node-id=2750%3A7345&embed-host=share"
               allowFullScreen
-            ></iframe>
+            />
           </div>
 
           <h3 className="blog-subheading">KEY FEATURES</h3>
@@ -384,6 +392,22 @@ function AetherApp() {
               <img
                 src={Aetherbrochure2}
                 alt="Aether brochure 2"
+                className="aether-marketing-image"
+                onClick={() => openSlideshow(12)}
+              />
+            </div>
+
+            <h5 className="aether-marketing-title">Business Card</h5>
+            <div className="aether-marketing-items">
+              <img
+                src={Aetherbusinesscard1}
+                alt="Aether business card 1"
+                className="aether-marketing-image"
+                onClick={() => openSlideshow(11)}
+              />
+              <img
+                src={Aetherbusinesscard2}
+                alt="Aether business card 2"
                 className="aether-marketing-image"
                 onClick={() => openSlideshow(12)}
               />

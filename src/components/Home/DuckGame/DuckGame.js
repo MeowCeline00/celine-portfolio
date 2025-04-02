@@ -3,6 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 import './DuckGame.css';
 import { DiJavascript1, DiReact, DiHtml5 } from "react-icons/di";
 
+// Import images
 import normalDuck from '../../../Assets/Punchup/the_duck.png';
 import rightArrowImg from '../../../Assets/Punchup/right_arrow_button.png';
 import universityImg from '../../../Assets/Punchup/university_building.png';
@@ -28,15 +29,18 @@ const DuckGame = ({ show, handleClose }) => {
   const [showIntro, setShowIntro] = useState(true);
   const [showCosplayBubble, setShowCosplayBubble] = useState(true);
   
+  // Building positions - made BCIT closer to UBC
   const buildings = [
     { id: 1, type: 'ubc', position: 600, name: 'UBC', image: universityImg, stageRequired: 0 },
     { id: 2, type: 'bcit', position: 1000, name: 'BCIT', image: collegeImg, stageRequired: 1 }
   ];
   
+  // Stage width constants - reduced since buildings are closer
   const stageWidth = 1800;
   const visibleWidth = 950;
   const [stagePosition, setStagePosition] = useState(0);
   
+  // Set up introduction sequence when the game starts
   useEffect(() => {
     if (show) {
       // Start duck wiggling for 2 seconds
@@ -60,27 +64,6 @@ const DuckGame = ({ show, handleClose }) => {
     
     // If game is in final pause or completed, don't allow further movement
     if (showFinalPause || gameCompleted) return;
-    
-    // Calculate current position
-    const absoluteDuckPosition = stagePosition + duckPosition;
-    
-    // Check if duck is at UBC building and hasn't clicked it yet
-    const ubcBuilding = buildings.find(b => b.type === 'ubc');
-    if (gameStage === 0 && 
-        absoluteDuckPosition >= ubcBuilding.position - 100 && 
-        absoluteDuckPosition <= ubcBuilding.position + 150) {
-      // Don't allow movement past the building until clicked
-      return;
-    }
-    
-    // Check if duck is at BCIT building and hasn't clicked it yet
-    const bcitBuilding = buildings.find(b => b.type === 'bcit');
-    if (gameStage === 1 && 
-        absoluteDuckPosition >= bcitBuilding.position - 100 && 
-        absoluteDuckPosition <= bcitBuilding.position + 150) {
-      // Don't allow movement past the building until clicked
-      return;
-    }
     
     // Move the duck
     const newDuckPosition = Math.min(duckPosition + 60, visibleWidth - 150);
@@ -113,7 +96,7 @@ const DuckGame = ({ show, handleClose }) => {
       // After 4 seconds, switch back to normal duck
       setTimeout(() => {
         setDuckImage(normalDuck);
-      }, 2000);
+      }, 4000);
     } 
     else if (buildingType === 'bcit' && gameStage === 1) {
       // Keep duck_better.png as the final state (no timeout to change back)

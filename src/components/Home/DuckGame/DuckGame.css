@@ -23,7 +23,7 @@
   }/* Introduction Text Bubble */
   .intro-text-bubble {
     position: absolute;
-    top: -70px;  
+    top: -70px;  /* Moved closer to the duck from -100px */
     left: -100px;
     width: 300px;
     padding: 15px;
@@ -58,7 +58,7 @@
   /* Cosplay Bubble */
   .cosplay-bubble {
     position: absolute;
-    top: -160px;  
+    top: -160px;  /* Moved closer to the duck from -200px */
     left: 100px;
     width: 120px;
     height: 120px;
@@ -315,7 +315,7 @@
   /* Building Styles */
   .building {
     position: absolute;
-    bottom: 22%;  
+    bottom: 22%;  /* Moved lower from 30% */
     height: 300px; 
     z-index: 2;
     display: flex;
@@ -347,11 +347,12 @@
     z-index: 3;
   }
   
+  /* Duck Character Styles */
   .duck-character {
     position: absolute;
-    bottom: 5%;  
-    height: 250px;  
-    width: 250px;  
+    bottom: 20%;  /* Moved lower from 29% */
+    height: 225px;  /* Increased from 150px (1.5x) */
+    width: 225px;  /* Increased from 150px (1.5x) */
     z-index: 10;
     transition: left 0.3s ease-out;
   }
@@ -365,9 +366,9 @@
   /* Other Ducks Styles */
   .other-ducks {
     position: absolute;
-    bottom: 20%;  
-    height: 300px;  
-    width: 300px; 
+    bottom: 20%;  /* Moved lower from 29% */
+    height: 300px;  /* Increased from 200px (1.5x) */
+    width: 300px;  /* Increased from 200px (1.5x) */
     z-index: 9;
   }
   
