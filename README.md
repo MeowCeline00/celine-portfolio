@@ -1,6 +1,6 @@
 # Celine Portfolio
 - website (wordpress version):  https://conglingceline.com/
-- website (coded version): https://celineconglingwang.com/
+- website (coded version): https://congling-celine-portfolio.netlify.app/
 
 ## Template from
 
